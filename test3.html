@@ -1,0 +1,206 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жоғарғы дәрежелі тест</title>
+</head>
+<style>*{
+	background: #d1fffbfa;
+	
+  }
+  .main{
+	width: 1140px;
+	  margin: 0 auto;
+	  margin-top: 20px;
+  }
+  
+  .knopka {
+	text-decoration: none;
+	display: inline-block;
+	color: white;
+	padding: 20px 30px;
+	margin: 10px 20px;
+	border-radius: 10px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+	background-size: 200% auto;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+	transition: .5s;
+  }
+  .knopka:hover {
+	background-position: right center;
+  }
+  .name{
+	color: black;
+	  margin-top: 15px;
+	  font-family: Roboto;
+	  line-height: 15px;
+  }
+  .quest{
+	font-weight: bold;
+  }
+  
+  .Engine .Score .answerText{
+	text-align: center;
+  }
+  #jayab{
+	display: inline-block;
+	vertical-align: top;
+	background-color: white;
+	width: 250px;
+  }
+  a.artka{
+	font-size:12.0pt;
+	margin-left: 100%;
+	font-weight: 700;
+	color: black;
+	}</style>
+<body>
+<div class="main">
+	<a href="zzz.html" class="artka"> Артқа </a></span></p>
+	<script>
+var title = 'Жоғарғы дәрежелі тест';
+// Подзаголовок (h2)
+var subtitle = " Тест JavaScript-ті жетік білетін мамандарға бағытталған.";
+// Это ваши вопросы
+var questions=[
+{
+	text: "Confirm мен prompt арасындағы айырмашылығы неде?",
+	answers: [" Олар әр түрлі емес",
+		 " Confirm - енгізу өрісі бар диалогтық терезені шақырады, Prompt - растау терезесін шақырады",
+		  "Prompt - енгізу өрісі бар диалогтық терезені шақырады, Confirm - растау терезесін шақырады",
+                  " Айырмашылықтары жоқ"],
+	correctAnswer: 2 // нумерация ответов с нуля!
+},
+{
+	text: "Javascript-те қандай циклдер бар?",
+	answers: ["for, while, do while",
+		  "for, forMap, foreach, while",
+		  "for, forMap, foreach, while, do while",
+                  "for, while, do while, foreach"],
+	correctAnswer: 0
+},
+{
+	text: "Javascript-ті қайда қолдануға болады?",
+	answers: ["Мобильді және Веб-қосымшаларда",
+		  "Серверлік қосымшаларда",
+		  "Қолданбалы бағдарламалық жасақтама",
+                  "Жоғарыда аталған барлық нұсқаларда"],
+	correctAnswer: 3
+},
+{
+	text: "Жергілікті және ғаламдық айнымалының айырмашылығы неде?",
+	answers: ["Жергілікті барлық жерде көрінеді, ғаламдық тек функцияларда ",
+		  "Ғаламдықты өзгертуге болады, ал жергілікті өзгермейді",
+		  "Ғаламдық барлық жерде көрінеді, жергілікті тек функцияларда",
+                  "Жергіліктіні өзгертуге болады, ал ғаламдық өзгермейді"],
+	correctAnswer: 2
+},
+{
+	text: "Айнымалыларда қандай мәндерді сақтауға болады?",
+	answers: ["Тек сандар мен жолдар  ",
+		 "Жолдар, нүктелі сандар, жай сандар және бульдік өрнектер",
+		  "Жолдар, нүктелік және жай сандар",
+                  "Тек жай сандар мен жолдар"],
+	correctAnswer: 1
+},
+{
+	text: "Деректерді шығару қай жерде дұрыс орындалған?",
+        answers: ["console.log(“Hello”); ",
+		  "write(“Hello”);",
+		  "print(“Hello”);",
+                  "documentWrite(“Hello”);"],
+	correctAnswer: 0
+},
+{
+	text: "Қандай айнымалы қате көрсетілген?",
+	answers: ["var num = “STRING”; ",
+		  "var isDone = 0;",
+		  "var number = 12,5;",
+                  "var b = false;"],
+	correctAnswer: 2
+},
+{
+	text: "Құжаттың басында DOCTYPE сипаттамасы неге әсер етеді?",
+	answers: ["Стандарттарға сәйкестігін тексеру кезінде сыртқы валидаторға",
+		  "Дисплейде CSS қасиеттерінің жұмысы",
+		  "DOM-да кейбір қасиеттерінің болуы және болмауы үшін",
+                  "Жоғарыда көсетілгендердің барлығы дұрыс "],
+	correctAnswer: 3
+},
+{
+	text: "= = = операторы не істейді?",
+	answers: ["Мәні бойынша емес, сілтеме бойынша салыстырады",
+		  "Мысал келтірмей салыстырады",
+		  "Ондай оператор жоқ",
+                  "Мәндерді теңестіреді"],
+	correctAnswer: 1
+},
+{
+	text: "Қандай арифметикалық амал JavaScript қатесіне әкеледі?",
+	answers: ["Нөлге бөлу ",
+		  "Санды жолға көбейту",
+		  "Теріс санның түбірі",
+                  "Жоғарыда көсетілгендердің ешқайсысы дұрыс емес"],
+	correctAnswer: 3
+}
+];
+var yourAns = new Array;
+	var score = 0;
+	
+	function Engine(question, answer) {yourAns[question]=answer;}
+	function Score(){
+	   var answerText = "Сіздің тестіңіздің нәтижесі:<br>\n";
+	   for(var i = 0; i < yourAns.length; ++i){
+		var num = i+1;
+		answerText=answerText+"\n   №"+ num +"";
+		if(yourAns[i]!=questions[i].correctAnswer){
+			answerText=answerText+" Дұрыс емес<br> \n";
+		  }
+			else{
+			answerText=answerText+" Дұрыс<br> \n";
+			++score;
+			}
+		   }
+	
+	   answerText=answerText+"\nБарлық дұрыс жауаптар саны: "+score; "\n";
+	   document.getElementById('jayab').innerHTML=answerText;
+	   yourAns = [];
+	   score = 0;
+	   clearForm("quiz");
+	}
+	function clearForm(name) {
+	   var f = document.forms[name];
+	   for(var i = 0; i < f.elements.length; ++i) {
+		if(f.elements[i].checked)
+			f.elements[i].checked = false;
+	}
+	}
+	</script>
+<h1><script>document.write(title)</script></h1>
+<h2><script>document.write(subtitle)</script></h2>
+<form name="quiz">
+	<ol>
+		<script>
+		for(var q=0; q<questions.length; ++q) {
+	   var question = questions[q];
+	   var idx = 1 + q;
+	   document.writeln('<li><span class="quest">' + question.text + '</span><br/>');
+	   for(var i in question.answers) {
+	   document.writeln('<input type=radio name="q' + idx + '" value="' + i +
+	   '" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+	}
+	}
+	</script>		
+	</ol>
+	</form>	
+<div id="jayab"></div>
+<div><center>
+<p><input class="knopka" type="submit" value="Нәтижесін көру" onClick="Score()"></p>
+</center></div>
+</div>
+</body>
+</html>

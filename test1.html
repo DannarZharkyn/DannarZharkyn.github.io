@@ -1,0 +1,206 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жеңіл дәрежелі тест</title>
+</head>
+<style>*{
+	background: #d1fffbfa;
+	
+  }
+  .main{
+	width: 1140px;
+	  margin: 0 auto;
+	  margin-top: 20px;
+  }
+  
+  .knopka {
+	text-decoration: none;
+	display: inline-block;
+	color: white;
+	padding: 20px 30px;
+	margin: 10px 20px;
+	border-radius: 10px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+	background-size: 200% auto;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+	transition: .5s;
+  }
+  .knopka:hover {
+	background-position: right center;
+  }
+  .name{
+	color: black;
+	  margin-top: 15px;
+	  font-family: Roboto;
+	  line-height: 15px;
+  }
+  .quest{
+	font-weight: bold;
+  }
+  
+  .Engine .Score .answerText{
+	text-align: center;
+  }
+  #jayab{
+	display: inline-block;
+	vertical-align: top;
+	background-color: white;
+	width: 250px;
+  }
+  a.artka{
+	font-size:12.0pt;
+	margin-left: 100%;
+	font-weight: 700;
+	color: black;
+	}</style>
+<body>
+<div class="main">
+	<a href="zzz.html" class="artka"> Артқа </a></span></p>
+	<script>
+	var title = 'Жеңіл дәрежелі тест';
+var subtitle = " Тест JavaScript-ті жақында үйренген мамандарға бағытталған.";
+var questions=[
+{
+	text: "JavaScript-те функцияны қалай енгізіп бастау керек?",
+	answers: ["function MyFunction()",
+		  "function:MyFunction()",
+		  "function = MyFunction()",
+                  "function = New MyFunction()"],
+	correctAnswer: 0 // нумерация ответов с нуля!
+},
+{
+	text: "Қай бөлімде JavaScript-ті енгізуге болады?",
+	answers: ["&lt;body&gt;",
+		  "&lt;head&gt;",
+		  "<’head’> және <’body’>",
+                  "&lt;head&gt;және &lt;body&gt;"],
+	correctAnswer: 3
+},
+{
+	text: "Қандай HTML тегінен кейін JavaScript енгізу керек?",
+	answers: ["&lt;javascript&gt;",
+		  "&lt;script&gt;",
+		  "&lt;js&gt;",
+                  "&lt;scripting&gt;"],
+	correctAnswer: 1
+},
+{
+	text: "Сыртқы скрипті қалай дұрыс енгізу керек?",
+	answers: ["&lt;script src=&quot;sample1.js&quot;&gt",
+		  "&lt;#include &quot;sample1.js&quot;&gt",
+		  "&lt;script name=&quot;sample1.js&quot;&gt",
+                  "&lt;script href=&quot;sample1.js&quot;&gt"],
+	correctAnswer: 0
+},
+{
+	text: "JavaScript көмегімен &quot;Hello, World!&quot; хабарламасын қалай шығаруға болады?",
+	answers: ["alertBox(&quot;Hello, World!&quot;);",
+		 "msgBox(&quot;Hello, World!&quot;)",
+		  "alert(&quot;Hello, World!&quot;)",
+                  "msg(&quot;Hello, World!&quot;)"],
+	correctAnswer: 2
+},
+{
+	text: "JavaScript-те қалай жаңа массив құруға болады?",
+        answers: ["var colors = &quot;yellow&quot;, &quot;purple&quot;, &quot;blue&quot;",
+		  "var colors = (1:&quot;yellow&quot;, 2:&quot;purple&quot;, 3:&quot;blue&quot;)",
+		  "var colors = 1 = (&quot;yellow&quot;), 2 = (&quot;purple&quot;), 3 = (&quot;blue&quot;)",
+                  "var colors = [&quot;yellow&quot;, &quot;purple&quot;, &quot;blue&quot;]"],
+	correctAnswer: 3
+},
+{
+	text: "JavaScript WHILE циклын қалай бастау керек?",
+	answers: ["while i = 1 to 7",
+		  "while (i <= 7; i++)",
+		  "while i = 1 <= 7",
+                  "while (i <= 7)"],
+	correctAnswer: 3
+},
+{
+	text: "JavaScript FOR циклын қалай бастау керек?",
+	answers: ["for (i = 0; i <= 10)",
+		  "for (i <= 10; i++)",
+		  "for (i = 0; i <= 10; i++)",
+                  "for i = 1 to 10"],
+	correctAnswer: 2
+},
+{
+	text: "JavaScript-те екі санның ең үлкенін қалай табуға болады?",
+	answers: ["Math.max(x, y)",
+		  "ceil(x, y)",
+		  "Math.ceil(x, y)",
+                  "top(x, y)"],
+	correctAnswer: 0
+},
+{
+	text: "Берілген кодтардың қайсысы HTML элементінің мазмұнын өзгерте алады?",
+	answers: ["#demo.text = &quot;Hello, World!&quot;",
+		  "document.getElementById(&quot;demo&quot;).innerHTML = &quot;Hello, World!&quot;",
+		  "document.getElementByName(&quot;p&quot;).innerHTML = &quot;Hello, World!&quot;",
+                  "#demo.text = &quot;Hello, World!&quot;"],
+	correctAnswer: 1
+}
+];
+</script>
+<script> 
+var yourAns = new Array;
+	var score = 0;
+	
+	function Engine(question, answer) {yourAns[question]=answer;}
+	function Score(){
+	   var answerText = "Сіздің тестіңіздің нәтижесі:<br>\n";
+	   for(var i = 0; i < yourAns.length; ++i){
+		var num = i+1;
+		answerText=answerText+"\n   №"+ num +"";
+		if(yourAns[i]!=questions[i].correctAnswer){
+			answerText=answerText+" Дұрыс емес<br> \n";
+		  }
+			else{
+			answerText=answerText+" Дұрыс<br> \n";
+			++score;
+			}
+		   }
+	
+	   answerText=answerText+"\nБарлық дұрыс жауаптар саны: "+score; "\n";
+	   document.getElementById('jayab').innerHTML=answerText;
+	   yourAns = [];
+	   score = 0;
+	   clearForm("quiz");
+	}
+	function clearForm(name) {
+	   var f = document.forms[name];
+	   for(var i = 0; i < f.elements.length; ++i) {
+		if(f.elements[i].checked)
+			f.elements[i].checked = false;
+	}
+	}
+	</script>
+<h1><script>document.write(title)</script></h1>
+<h2><script>document.write(subtitle)</script></h2>
+<form name="quiz">
+	<ol>
+		<script>
+		for(var q=0; q<questions.length; ++q) {
+	   var question = questions[q];
+	   var idx = 1 + q;
+	   document.writeln('<li><span class="quest">' + question.text + '</span><br/>');
+	   for(var i in question.answers) {
+	   document.writeln('<input type=radio name="q' + idx + '" value="' + i +
+	   '" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+	}
+	}
+	</script>		
+	</ol>
+	</form>	
+<div id="jayab"></div>
+<div><center>
+<p><input class="knopka" type="submit" value="Нәтижесін көру" onClick="Score()"></p>
+</center></div>
+</div>
+</body>
+</html>

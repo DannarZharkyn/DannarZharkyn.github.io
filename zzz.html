@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>JavaScript тест</title>
+<style>
+body{
+	background-color: #cbdad5fa;
+}
+
+#wrapper{
+	width: 1520px; /* беттің ені өзгереді*/
+  margin: 0 auto;
+  background:#AFEEEE /* беттің артқы бөлігінің түсі */
+}
+
+/* сайттың үстіңгі бөлігі */
+#header{
+	position:relative; /* Задаём блоку относительное позиционирование для того, чтобы затем размещать, в нём другие элементы и позиционировать относительно его границ поверх фоновой картинки и заголовка */
+  height: 250px; /* үстіңгі бөліктің биіктігі */
+  background-color: #ffffff; /* үстіңгі бөліктің түсі */
+   margin-bottom: 5px; 
+  border-radius: 5px; /* Закругляются углы блока */
+  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px; /* Көлеңке*/
+}
+
+img{/* үстіңгі бөліктегі сурет */
+float: left; 
+  margin: 0px 0 0 0;} /* суретті header блогына орналастырамыз */
+
+.h1{ /* Заголовок сайта */
+
+  margin:0 auto; 
+  color:#464451;  /* тақырып түсі */
+  font-family: Roboto; /*тақырып шрифты*/
+}
+
+
+/* Сайдбар (оң жақ бөлік) */
+
+#sidebar{ /* Блок сайдбара */
+  background-color: #ffffff; /*блок түсі */
+  width: 180px;
+  height: 250px; /* блок ені */
+  padding: 10px; /* Мәтіннің шетінен шегінісі*/
+  margin-top: 180px;
+  float: right; /* Размещаем блок справа от других элементов, наплывание или обтекание справа). Если делать сайдбар слева, то значение right меняем на left */
+  border-radius: 5px; /* Блоктың бұрыштарын дөңгелектетеміз*/
+  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px; /* блок көлеңкесі*/
+}
+.marcer{ /* Галочки меню */
+	position: absolute;
+  float: left; /* Мәтіннің сол жағына орналастырамыз */
+  margin: 10px 10px 0 0; 
+  padding-right: 5px;
+}
+
+.turaly{
+	position: absolute;
+	padding: 10px;
+	color:#4169E1 ;
+	float: top;
+}
+.kitap{
+	position: absolute;
+	padding: 10px;
+	margin-top: 5px;
+	color:#4169E1;
+}
+a.turaly{/*ссылка*/
+	font-weight: 700;
+  color: #397b85;
+}
+
+a.kitap{/*ссылка*/
+	font-weight: 700;
+  color: #397b85;
+}
+
+
+a.knop1 {
+	position: absolute;
+	margin-top: 10px;
+    margin-left: -75px;
+	width:150px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.knop1:hover { background: rgb(53, 167, 110); }
+a.knop1:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+a.knop2 {
+	position: absolute;
+	margin-top: 10px;
+    margin-left: -75px;
+	width:150px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.knop2:hover { background: rgb(53, 167, 110); }
+a.knop2:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+
+a.knop3 {
+	position: absolute;
+	margin-top: 10px;
+    margin-left: -75px;
+	width:150px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.knop3:hover { background: rgb(53, 167, 110); }
+a.knop3:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+.waiting{
+        	height: 600px;
+        	background-color: #e3ffff;
+
+        }
+
+        .waiting .waiting_header{
+    color: black;
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 12px;
+    text-transform: uppercase;
+    text-align:center;
+}
+.waiting .waiting_divider{
+    width: 217px;
+    height: 4px;
+    background-color: #F9BF3B;
+    margin: 0 auto;
+    margin-top: 18px;
+}
+.waiting .waiting_subheader{
+    margin-top: 17px;
+    color: #4a4a4a;
+    font-family: Roboto;
+    font-size: 23px; 
+    font-weight: 400;
+    line-height: 20px;
+    text-align:center;
+}
+.waiting .waiting_wrapper{
+    margin-top: 45px;
+}
+
+.waiting .waiting_wrapper .waiting_item{
+    display: inline-block;
+    width: 339px;   
+    vertical-align: top;
+    margin: 0 15px;
+    text-align: center;
+}
+.waiting .waiting_wrapper .waiting_item .waiting_img .knopki{
+    width:100%
+}
+.waiting .waiting_wrapper .waiting_item .waiting_descr{
+    margin-top: 33px;
+    color:black;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 21px;
+}
+
+.wrap{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/* сайттың төменгі бөлігі */
+
+#footer{ /* төменгі блок */
+  height:80px; /* төменгі блоктың биіктігі */
+  width:1200px;
+  background-color: #ffffff; /* төменгі блоктың түсі */
+  margin-bottom: 10px; /* Шегініс төменнен */
+  margin-top: 10px;
+  border-radius: 5px; /* Дөңгелек бұрыштар */
+  box-shadow: rgba(0,0,0,0.5) 0px 1px 3px; /* блок көлеңкесі */
+}
+.clear{ 
+  clear: both;
+}
+  
+ .agileits-w3layouts-footer{
+            background: #AFEEEE ;
+            padding:3em 0;
+        }
+        .w3-agile-grid h5{
+            color: #397b85;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            text-decoration-color: #397b85;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin: 0 0 2em 0;
+        }
+        .w3-agile-grid p{
+            color: #ffffff;
+            font-size: 0.9em;
+            line-height: 2em;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .agileinfo-social-grids {
+            margin: 2em 0 0 0;
+        }
+        .agileinfo-social-grids ul {
+            padding: 0;
+            margin: 0;
+        }
+        .w3ls-post-img {
+            float: left;
+            width: 20%;
+        }
+        .w3ls-post-img a img{
+            width:100%;
+        }
+        .w3ls-post-info{
+            float:right;
+            width:75%;
+        }
+        .w3ls-post-info h6{
+            margin: 0;
+            font-size: 1em;
+            font-weight: 400;
+        }
+        .w3ls-post-info h6 a{
+                color:#397b85 ;
+            margin: 0;
+            line-height: 1.5em;
+        }
+        .w3ls-post-info h6 a:hover{
+            color:#ff5301;
+        }
+        .w3ls-post-info h6 a:focus{
+            outline:none;
+            text-decoration:none;
+        }
+        .w3ls-post-info p{
+            font-size: .9em;
+            margin: 1em 0 0 0;
+        }
+        .w3ls-post-grid:nth-child(2){
+            margin:1em 0;
+        }
+        .w3-address-grid{
+                background: #397b85 ;
+            padding:1em;
+        }
+        .w3-address-left{
+            float:left;
+            width:10%;
+        }
+        .w3-address-left i.fa.fa-phone,.w3-address-left i.fa.fa-envelope,.w3-address-left i.fa.fa-map-marker{
+            color: #FFFFFF;
+            font-size: 1.5em;
+        }
+        .w3-address-right{
+            float: right;
+            width: 87%;
+        }
+        .w3-address-right h6{
+            color: #FFFFFF;
+            font-size: 1em;
+            margin: 0;
+            font-weight: 400;
+        }
+        .w3-address-right p{
+            margin:1em 0 0 0;
+            font-size:.9em;
+        }
+        .w3-address-right p a{
+            color: #34bf49;
+            text-decoration: none;
+        }
+        .w3-address-right p a:hover{
+            color:#b5b5b5;
+        }
+        .w3-address-right p span{
+            display:block;
+            margin:.5em 0;
+        }
+        .w3-address-grid:nth-child(2){
+            margin:1em 0;
+        }
+        .copyright{
+                padding: 1.3em 0 1em 0;
+            text-align:center;
+            background: #397b85;
+        }
+        
+        
+
+</style>
+</head>
+<body>
+	<div id="wrapper"> 
+<!--Сайттың үстіңгі бөлігі-->
+    <div id="header">
+<!--Сайт тақырыбы-->
+  
+
+<!--Сайттың тақырыбындағы фондық сурет-->
+      <img src="609.jpg" height="250" width="1520" >
+    </div>
+
+<!--Сайдбар-->
+    <div id="sidebar">
+<!--меню-->
+      <h3>Біздің сайтта</h3>
+<!--Меню белгілерінің суреттері (галочки)-->
+        <p><img class="marcer" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3xHgPHLEsYqcbKkqwln2SSRguB_CmjVSpIw&usqp=CAU"width="15" height="15">
+        <a href="akparat.html" class="turaly">  JavaScript жайлы</a>
+        </p><br>
+        <p><img class="marcer" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3xHgPHLEsYqcbKkqwln2SSRguB_CmjVSpIw&usqp=CAU" width="15" height="15">
+        <a href="kitap.html" class="kitap">Пайдалы кітаптар</a>
+    </p>
+<!--Сайдбардағы жалпы ақпарат-->
+      
+    </div>
+
+    
+<!--Басты контент (статья)-->
+    
+</section>
+    <section class="waiting">
+        <div class="container">
+        	<br><h1 class="waiting_header" >JavaScript негіздерінен біліміңізді тексеруге арналған тест</h1>
+<!--Мақала мәтіні-->
+<br>
+            <h2 class="waiting_header">Тестілеу қандай форматта өтеді?</h2>
+            <div class="waiting_divider"></div>
+            <div class="waiting_subheader"> Тестілеу онлайн форматта болады және 3 деңгейден тұрады:</div>
+<div class="waiting_wrapper">
+<div class="waiting_item">
+    <img src="src/img/waiting/waiting_1.png" alt="1" class="waiting_img">
+    <div class="waiting_descr"> Жеңіл дәрежелі тест JavaScript-ті жақында үйренген мамандарға бағытталған.</br><a href="test1.html" class="knop1"> Жеңіл деңгей  </a> </div>
+</div>
+<div class="waiting_item">
+    <img src="src/img/waiting/waiting_2.png" alt="2" class="waiting_img">
+    <div class="waiting_descr">Орташа дәрежелі тест
+        JavaScript-тің негізін білетін мамандарға бағытталған.</br><a href="test2.html" class="knop2"> Орташа деңгей </a></div>
+</div>
+<div class="waiting_item">
+    <img src="src/img/waiting/waiting_3.png" alt="3" class="waiting_img">
+    <div class="waiting_descr">Жоғарғы дәрежелі тест
+        JavaScript-ті жетік білетін мамандарға бағытталған.</br><a href="test3.html" class="knop3"> Қиын деңгей   </a></div>
+                    
+            </div>
+        </div>
+
+       
+                
+    </div>
+</section>
+
+<!--төменгі блок-->
+  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div class="footer_bottom section">
+		<div class="agileits-w3layouts-footer">
+			<div class="container">
+				<div class="col-md-4 w3-agile-grid">
+					<h5>  Біз туралы <br> </h5>
+					<p style="color:#397b85">ITEST онлайн тестілеу өткізуге арналған платформа. Біздің сайтта JavaScriptке қатысты кез келген деңгейге арналған тесттерді таба аласыз. Сонымен қатар JavaScript туралы қызықты ақпараттар, пайдалы кітаптар және де онлайн курстардыда табуға көмектесеміз. ITEST еліміздегі үздік платформалардың бірі болып табылады!</p>
+					 	
+				</div>
+				<div class="col-md-4 w3-agile-grid">
+					<h5>Пайдалы ақпараттар</h5>
+					<div class="w3ls-post-grids">
+						<div class="w3ls-post-grid">
+							
+							<div class="w3ls-post-info">
+								<h6><a href="https://learn.javascript.ru/hello-world" data-toggle="modal" data-target="#myModal"> Онлайн сабақтар</a></h6>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3ls-post-grid">
+							
+							<div class="w3ls-post-info">
+								<h6><a href="https://www.youtube.com/watch?v=fXi49EkrMPI&ab_channel=ITVDN" data-toggle="modal" data-target="#myModal">Видеосабақтар</a></h6>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3ls-post-grid">
+							
+							<div class="w3ls-post-info">
+								<h6><a href="https://learn.javascript.ru/courses" data-toggle="modal" data-target="#myModal">Онлайн курстар</a></h6>
+								<p></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 w3-agile-grid">
+					<h5>Бізбен байланыс</h5>
+					<div class="w3-address">
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Телефон номеріміз</h6>
+								<p>+7 778 948 2063</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Электронды почта</h6>
+								<p>Email :<a href="https://mail.ru/"> zauren.zhambylova@mail.ru</a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="w3-address-grid">
+							<div class="w3-address-left">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="w3-address-right">
+								<h6>Адрес</h6>
+								<p>Нұр-Сұлтан қаласы, Қонаева 12/1 </p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="copyright">
+        </div>
+  </div>
+  <!-- CDN подключение иконок fontawesome -->
+  <script src="https://use.fontawesome.com/df966d76e1.js"></script>
+
+  </div>
+</body>
+</html>
