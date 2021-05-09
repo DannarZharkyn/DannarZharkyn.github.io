@@ -1,0 +1,95 @@
+
+*{
+  background: #d1fffbfa; 
+}
+.main{
+  width: 1140px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.knopka {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+}
+.knopka:hover {
+  background-position: right center;
+}
+.name{
+  color: black;
+    margin-top: 15px;
+    font-family: Roboto;
+    line-height: 15px;
+}
+.quest{
+  font-weight: bold;
+}
+
+.Engine .Score .answerText{
+  text-align: center;
+}
+#jayab{
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+  width: 250px;
+}
+a.artka{
+  font-size:12.0pt;
+  margin-left: 100%;
+  font-weight: 700;
+  color: black;
+  }
+#welcome{
+  font-size: x-large;
+  color: rgb(3, 3, 168);
+}
+a.knop1 {
+	position: absolute;
+  margin-left: 50%;
+	margin-top: 10px;
+  font-weight: 700;
+  width:100px;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.knop1:hover { background: rgb(53, 167, 110); }
+a.knop1:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}
+a.knop2 {
+	position: absolute;
+  margin-left: 60%;
+	margin-top: 10px;
+  font-weight: 700;
+  width:100px;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  background: rgb(64,199,129);
+  box-shadow: 0 -3px rgb(53,167,110) inset;
+  transition: 0.2s;
+} 
+a.knop2:hover { background: rgb(53, 167, 110); }
+a.knop2:active {
+  background: rgb(33,147,90);
+  box-shadow: 0 3px rgb(33,147,90) inset;
+}

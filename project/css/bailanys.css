@@ -1,0 +1,50 @@
+*{
+    background-color: #D3D3D3;
+    margin-top: 10px;
+    
+  }
+.first{
+    display:inline-block;
+    width: 440px;
+    height: 500px;
+    margin-left: 20px;
+}
+.text{
+    display: inline-block;
+    width: 550px;
+    font-size: 17px;
+    
+}
+.text1{
+    font-size: 29px;
+}
+.map{
+    display: inline-block;
+    width: 800px;
+    height: 560px;
+    margin-left: 100px;
+    
+}
+.text2{
+    margin-left: 100px;
+    font-size: 30px;
+}
+.email{
+    font-size: 18px;
+    color: black;
+}
+.nom1{
+    font-size: 18px;
+    color: black;
+    font-style:normal;
+}
+.nom2{
+    font-size: 18px;
+    color: black;
+}
+.adress{
+    font-size: 18px;
+}
+.sozder{
+    font-size: 18px;
+}

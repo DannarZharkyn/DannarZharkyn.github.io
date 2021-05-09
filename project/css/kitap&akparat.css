@@ -1,0 +1,33 @@
+body{
+	background-color: #D3D3D3;
+}
+
+#wrapper{
+  width: 1200px;
+	  margin: 0 auto;
+  background:#AFEEEE /* беттің артқы бөлігінің түсі */
+  padding-left:100px;
+}
+
+.h1{
+  margin:0 auto; 
+  color:#464451;  /* тақырып түсі */
+  font-family: Roboto; /*тақырып шрифты*/
+}
+.artka{
+    font-size:12.0pt;
+  margin-left: 85%;
+  font-weight: 700;
+  color: black;
+  }
+
+
+
+
+
+ 
+ 
+ 
+
+
+
