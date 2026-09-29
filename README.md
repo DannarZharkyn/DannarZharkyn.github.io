@@ -1,8 +1,8 @@
 # Dannar Zharkyn — Engineering Portfolio
 
-Minimal starter for the portfolio of Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.
+Scrolling portfolio for Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.
 
-Only the introduction is implemented. Projects, About, Experience, Skills, Resume, and Contact will be added using verified content. There are no invented projects or placeholder profile links.
+The page includes Introduction / Resume, Projects, Experience, Skills, Education, and Contact. Sections without supplied content are clearly marked as forthcoming. GitHub is linked; resume, email, and LinkedIn remain unavailable until supplied. No project, experience, or skill claims have been invented.
 
 ## Architecture
 
@@ -38,7 +38,8 @@ public/                      Future images, resume PDF, and other static assets
 src/
   content/projects/          Reserved for future Markdown case studies (empty)
   layouts/BaseLayout.astro   Shared HTML document and SEO metadata
-  pages/index.astro          Minimal home page; files here become routes
+  data/profile.ts            Confirmed profile details and optional contact/resume URLs
+  pages/index.astro          Six-section scrolling home page
   styles/global.css         Responsive base styling
 astro.config.mjs            Static output and canonical site URL
 package.json                Commands and single direct dependency
@@ -48,6 +49,8 @@ tsconfig.json               Astro's strict TypeScript defaults
 ```
 
 Add reusable UI components under `src/components/` when needed. Avoid creating empty navigation destinations before their content exists.
+
+To add contact details, edit `src/data/profile.ts`. For a resume, place the PDF at `public/resume.pdf` and set `resume` to `/resume.pdf`. Empty values display non-interactive coming-soon text rather than broken links. Section copy is in `src/pages/index.astro`.
 
 ## Future project workflow
 

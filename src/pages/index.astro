@@ -1,15 +1,65 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/profile';
+const navigation = ['Introduction', 'Projects', 'Experience', 'Skills', 'Education', 'Contact'];
 ---
-
-<BaseLayout
-  title="Dannar Zharkyn | Engineering Portfolio"
-  description="Engineering portfolio of Dannar Zharkyn, a Systems Engineering MS candidate at Boston University."
->
-  <main>
-    <p class="eyebrow">Engineering portfolio</p>
-    <h1>Dannar Zharkyn</h1>
-    <p class="introduction">Systems Engineering MS candidate at Boston University.</p>
-    <p class="status">Portfolio in development.</p>
+<BaseLayout title="Dannar Zharkyn | Engineering Portfolio" description="Engineering portfolio of Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="wordmark" href="#introduction" aria-label="Dannar Zharkyn — introduction">DZ<span>.</span></a>
+    <nav aria-label="Main navigation">{navigation.map(label => <a href={`#${label.toLowerCase()}`}>{label}</a>)}</nav>
+  </div></header>
+  <main id="main">
+    <section class="hero container" id="introduction" aria-labelledby="intro-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Engineering portfolio</p>
+        <h1 id="intro-title">Dannar<br /><span>Zharkyn.</span></h1>
+        <p class="hero-description">Systems Engineering MS candidate<br class="desktop-break" /> at Boston University.</p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+          {profile.resume ? <a class="text-link" href={profile.resume}>View resume ↗</a> : <span class="pending-link">Resume coming soon</span>}
+        </div>
+      </div>
+      <div class="system-art" aria-hidden="true">
+        <div class="art-caption"><span>DZ / SYSTEMS</span><span>01—06</span></div>
+        <svg viewBox="0 0 400 360" fill="none">
+          <path class="diagram-grid" d="M0 60H400M0 120H400M0 180H400M0 240H400M0 300H400M40 0V360M100 0V360M160 0V360M220 0V360M280 0V360M340 0V360" />
+          <circle cx="200" cy="180" r="126" class="diagram-orbit"/><circle cx="200" cy="180" r="92" class="diagram-orbit"/>
+          <path d="M74 180H150M250 180H326M200 54V130M200 230V306M110 90L165 145M235 215L290 270" class="diagram-path"/>
+          <rect x="150" y="130" width="100" height="100" rx="4" class="diagram-core"/>
+          <rect x="163" y="143" width="74" height="74" rx="2" class="diagram-inner"/>
+          <path d="M179 180H221M200 159V201" class="diagram-cross"/>
+          <g class="diagram-nodes"><circle cx="74" cy="180" r="6"/><circle cx="326" cy="180" r="6"/><circle cx="200" cy="54" r="6"/><circle cx="200" cy="306" r="6"/><circle cx="110" cy="90" r="6"/><circle cx="290" cy="270" r="6"/></g>
+        </svg>
+        <div class="art-caption art-bottom"><span>COMPONENTS → CONNECTIONS</span><span>↗</span></div>
+      </div>
+      <div class="hero-foot"><span>Boston University / MS candidate</span><a href="#projects">Scroll to explore ↓</a></div>
+    </section>
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title"><div class="container">
+      <div class="section-heading"><p class="section-number">01 / SELECTED WORK</p><h2 id="projects-title">Projects<span class="accent">.</span></h2><p>Inside the problem, the process, and the decisions.</p></div>
+      <div class="project-placeholder"><div class="placeholder-symbol" aria-hidden="true">[ + ]</div><div><p class="eyebrow">Portfolio in progress</p><h3>Project case studies are on the way.</h3><p>This space will document the work, from the initial problem to the final results.</p></div></div>
+      <ol class="process" aria-label="Future case-study structure">{['Problem', 'My role', 'Process', 'Engineering / design decisions', 'Implementation', 'Results'].map((step, index) => <li><span>0{index + 1}</span>{step}</li>)}</ol>
+    </div></section>
+    <section class="section container split-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><p class="section-number">02 / EXPERIENCE</p><h2 id="experience-title">Experience<span class="accent">.</span></h2></div>
+      <div class="empty-state"><span class="empty-marker" aria-hidden="true"></span><h3>Experience details coming soon.</h3><p>Roles, responsibilities, and contributions will be added here.</p></div>
+    </section>
+    <section class="section container split-section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading"><p class="section-number">03 / TOOLKIT</p><h2 id="skills-title">Skills<span class="accent">.</span></h2></div>
+      <div class="empty-state"><span class="empty-marker" aria-hidden="true"></span><h3>A toolkit, grounded in the work.</h3><p>Technical skills and tools will be added alongside the projects that demonstrate them.</p></div>
+    </section>
+    <section class="section container split-section" id="education" aria-labelledby="education-title">
+      <div class="section-heading"><p class="section-number">04 / EDUCATION</p><h2 id="education-title">Education<span class="accent">.</span></h2></div>
+      <div class="education-entry"><p class="eyebrow">{profile.degree}</p><h3>{profile.university}</h3><p>{profile.program}</p><span class="education-rule" aria-hidden="true"></span></div>
+    </section>
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container contact-inner">
+      <div><p class="section-number">05 / CONTACT</p><h2 id="contact-title">Let’s connect<span>.</span></h2><p>Find me on GitHub. More ways to connect coming soon.</p></div>
+      <div class="contact-links">
+        {profile.email ? <a href={`mailto:${profile.email}`}>Email <span aria-hidden="true">↗</span></a> : <div class="contact-pending"><span>Email</span><span>Coming soon</span></div>}
+        {profile.linkedin ? <a href={profile.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a> : <div class="contact-pending"><span>LinkedIn</span><span>Coming soon</span></div>}
+        <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div></section>
   </main>
+  <footer class="container site-footer"><p>© {new Date().getFullYear()} Dannar Zharkyn</p><a href="#introduction">Back to top ↑</a></footer>
 </BaseLayout>
