@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/dannar-portrait.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { profile } from '../data/profile';
 const navigation = ['Introduction', 'Projects', 'Experience', 'Skills', 'Education', 'Contact'];
@@ -20,18 +22,17 @@ const navigation = ['Introduction', 'Projects', 'Experience', 'Skills', 'Educati
           {profile.resume ? <a class="text-link" href={profile.resume}>View resume ↗</a> : <span class="pending-link">Resume coming soon</span>}
         </div>
       </div>
-      <div class="system-art" aria-hidden="true">
-        <div class="art-caption"><span>DZ / SYSTEMS</span><span>01—06</span></div>
-        <svg viewBox="0 0 400 360" fill="none">
-          <path class="diagram-grid" d="M0 60H400M0 120H400M0 180H400M0 240H400M0 300H400M40 0V360M100 0V360M160 0V360M220 0V360M280 0V360M340 0V360" />
-          <circle cx="200" cy="180" r="126" class="diagram-orbit"/><circle cx="200" cy="180" r="92" class="diagram-orbit"/>
-          <path d="M74 180H150M250 180H326M200 54V130M200 230V306M110 90L165 145M235 215L290 270" class="diagram-path"/>
-          <rect x="150" y="130" width="100" height="100" rx="4" class="diagram-core"/>
-          <rect x="163" y="143" width="74" height="74" rx="2" class="diagram-inner"/>
-          <path d="M179 180H221M200 159V201" class="diagram-cross"/>
-          <g class="diagram-nodes"><circle cx="74" cy="180" r="6"/><circle cx="326" cy="180" r="6"/><circle cx="200" cy="54" r="6"/><circle cx="200" cy="306" r="6"/><circle cx="110" cy="90" r="6"/><circle cx="290" cy="270" r="6"/></g>
-        </svg>
-        <div class="art-caption art-bottom"><span>COMPONENTS → CONNECTIONS</span><span>↗</span></div>
+      <div class="portrait-frame">
+        <Image
+          src={portrait}
+          alt="Portrait of Dannar Zharkyn"
+          widths={[400, 800, 1200]}
+          sizes="(max-width: 600px) 310px, (max-width: 1200px) 40vw, 452px"
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+          class="hero-portrait"
+        />
       </div>
       <div class="hero-foot"><span>Boston University / MS candidate</span><a href="#projects">Scroll to explore ↓</a></div>
     </section>

@@ -29,9 +29,9 @@ svg { display: block; width: 100%; }
 nav { display: flex; gap: 1.7rem; }
 nav a { font-size: .8rem; font-weight: 550; color: #46584f; white-space: nowrap; }
 
-/* Introduction and decorative systems diagram */
+/* Introduction and portrait */
 .hero { padding-top: 6rem; display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem 5rem; align-items: center; }
-.eyebrow, .section-number, .art-caption, .hero-foot, .process li span { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.eyebrow, .section-number, .hero-foot, .process li span { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .eyebrow, .section-number { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
 h1 { font-size: clamp(3.7rem, 7.5vw, 6.6rem); line-height: 1.01; letter-spacing: -.065em; font-weight: 550; margin-bottom: 1.6rem; }
 h1 span { color: var(--accent); }
@@ -40,16 +40,8 @@ h1 span { color: var(--accent); }
 .button { display: inline-flex; align-items: center; gap: 2rem; background: #2e4d3f; color: white; padding: .85rem 1.2rem; font-size: .8rem; border-radius: 3px; }
 .button:hover { background: #203b2e; text-decoration: none; }
 .pending-link, .text-link { font-size: .78rem; color: var(--muted); }
-.system-art { border: 1px solid #d5dfd2; background: #eff3e9; padding: 1rem 1.2rem; transform: rotate(-2deg); }
-.art-caption { display: flex; justify-content: space-between; color: #52694f; font-size: .57rem; letter-spacing: .08em; padding-bottom: 1rem; border-bottom: 1px solid #d5dfd2; }
-.art-bottom { padding-top: 1rem; padding-bottom: 0; border-bottom: 0; border-top: 1px solid #d5dfd2; }
-.diagram-grid { stroke: #dbe4d4; stroke-width: .65; }
-.diagram-orbit { stroke: #afc0a4; stroke-dasharray: 3 5; }
-.diagram-path { stroke: #6d8b61; stroke-width: 1.5; }
-.diagram-core { fill: #dbe7d1; stroke: #6d8b61; }
-.diagram-inner { stroke: #97af86; }
-.diagram-cross { stroke: #486c3c; stroke-width: 2; }
-.diagram-nodes { fill: #527046; stroke: #eff3e9; stroke-width: 3; }
+.portrait-frame { width: 100%; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--line); border-radius: 3px; background: #eff3e9; }
+.hero-portrait { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; }
 .hero-foot { grid-column: 1/-1; display: flex; justify-content: space-between; border-top: 1px solid var(--line); margin-top: 1.5rem; padding: 1.2rem 0 2.5rem; font-size: .63rem; color: var(--muted); letter-spacing: .02em; }
 
 /* Portfolio sections */
@@ -91,7 +83,6 @@ h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 500; line-height: 1.15;
   nav { gap: 1rem; overflow-x: auto; padding-block: .6rem; }
   nav a { font-size: .73rem; }
   .hero { gap: 2rem; padding-top: 4rem; }
-  .system-art { padding: .8rem; }
   .hero-description { font-size: 1rem; }
   .hero-actions { gap: 1rem; }
   .project-placeholder { grid-template-columns: 80px 1fr; padding: 2rem; gap: 1.5rem; }
@@ -109,7 +100,7 @@ h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 500; line-height: 1.15;
   .desktop-break { display: none; }
   .hero-description { max-width: 19rem; }
   .hero-actions { margin-top: 1.5rem; }
-  .system-art { width: 100%; max-width: 310px; justify-self: center; transform: none; margin-top: 1rem; }
+  .portrait-frame { max-width: 310px; justify-self: center; margin-top: 1rem; }
   .hero-foot { margin-top: .5rem; gap: 1rem; font-size: .56rem; flex-wrap: wrap; padding-bottom: 1.8rem; }
   .section { padding-block: 3.5rem; }
   .project-placeholder { grid-template-columns: 1fr; padding: 1.5rem; gap: 1rem; }
