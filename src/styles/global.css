@@ -44,7 +44,7 @@ nav a:hover { color: var(--pink); }
 .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.5rem; align-items: center; padding-block: 3rem 2rem; flex: 1; }
 h1 { font-size: clamp(4rem, 6.8vw, 6.5rem); font-weight: 300; letter-spacing: -.065em; line-height: .98; margin-bottom: 1.7rem; }
 h1 span { color: var(--pink); }
-.hero-label { font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1.1rem; }
+.hero-label { font-size: .85rem; letter-spacing: .06em; line-height: 1.9; text-transform: uppercase; margin-bottom: 1.1rem; max-width: 36rem; }
 .hero-label span { padding-inline: .35rem; color: var(--pink); }
 .hero-description { font-size: 1.06rem; max-width: 335px; color: #ddd5d9; line-height: 1.65; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.65rem; }
