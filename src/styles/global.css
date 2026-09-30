@@ -108,10 +108,37 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .timeline-item::before { content: ''; position: absolute; left: -2.12rem; top: .4rem; width: 9px; height: 9px; border-radius: 50%; background: var(--pink); }
 .timeline h3 { font-size: .98rem; margin-bottom: .5rem; }
 .timeline p { font-size: .85rem; color: #bfb2b9; max-width: 360px; }
-.education-entry { border-top: 1px solid var(--line); padding-top: 1.3rem; }
-.degree-label { display: inline-block; font-size: .6rem; text-transform: uppercase; letter-spacing: .12em; color: #7c3d59; background: #eedee5; padding: .25rem .6rem; margin-bottom: .9rem; border-radius: 3px; }
-.education-entry h3 { font-size: 1.5rem; letter-spacing: -.035em; margin-bottom: .35rem; }
-.education-entry p { font-size: .9rem; color: var(--muted); }
+.experience-section { grid-column: 1 / -1; }
+.education-section { padding-block: 3.5rem; border-radius: 7px; }
+.education-entry { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 3rem; border-top: 1px solid var(--line); padding-block: 2.2rem; }
+.education-entry:last-child { padding-bottom: 0; }
+.education-dates { font-size: .8rem; color: #62565e; margin-bottom: .8rem; }
+.degree-label { display: inline-block; font-size: .63rem; letter-spacing: .04em; color: #7c3d59; background: #eedee5; padding: .3rem .65rem; border-radius: 3px; }
+.education-status { display: block; margin-top: .8rem; font-size: .65rem; color: #7c3d59; }
+.education-entry h3 { font-size: 1.4rem; letter-spacing: -.03em; margin-bottom: .45rem; }
+.education-field { font-size: 1rem; color: #53474e; }
+.education-bullets { padding-left: 1.1rem; margin: 1.1rem 0 0; font-size: .86rem; color: #625861; line-height: 1.75; }
+.education-bullets li + li { margin-top: .5rem; }
+.education-bullets li::marker { color: #a9637e; }
+.education-honors { margin-top: 1.4rem; }
+.education-honors h4 { font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: #71485b; margin: 0; font-weight: 500; }
+.education-honors .education-bullets { margin-top: .5rem; }
+.education-exchange { margin-top: 1.6rem; border-left: 2px solid #d6a0b6; background: #ede4e8; padding: 1.25rem 1.4rem; border-radius: 0 4px 4px 0; }
+.exchange-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; color: #764d60; font-size: .65rem; margin-bottom: .75rem; }
+.exchange-label { text-transform: uppercase; letter-spacing: .08em; }
+.education-exchange h4 { margin: 0 0 .35rem; font-size: 1.02rem; font-weight: 500; }
+.education-exchange p { color: #625861; font-size: .8rem; }
+.education-exchange p + p { margin-top: .2rem; }
+.education-exchange .education-bullets { font-size: .8rem; margin-top: .7rem; }
+@media (max-width: 800px) {
+  .education-entry { grid-template-columns: 180px minmax(0, 1fr); gap: 1.5rem; }
+}
+@media (max-width: 650px) {
+  .education-section { padding-block: 2.5rem; }
+  .education-entry { grid-template-columns: 1fr; gap: 1rem; padding-block: 1.8rem; }
+  .education-entry h3 { font-size: 1.25rem; }
+  .education-exchange { padding: 1rem; }
+}
 
 /* Pink closing strip */
 .contact-section { background: linear-gradient(110deg, #f1d5df, #f6bfd3); padding-block: 2.8rem; border-radius: 7px; }
