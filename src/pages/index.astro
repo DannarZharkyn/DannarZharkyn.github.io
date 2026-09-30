@@ -25,7 +25,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
         <div class="hero-copy">
           <p class="eyebrow">Engineering portfolio</p>
           <h1 id="intro-title">Dannar<br /><span>Zharkyn</span></h1>
-          <p class="hero-label">Systems Engineering <span aria-hidden="true">·</span> MS candidate</p>
+          <p class="hero-label">Systems Engineer <span aria-hidden="true">·</span> Product Builder</p>
           <p class="hero-description">A Systems Engineering MS candidate at Boston University.</p>
           <div class="hero-actions">
             <a class="button" href="#projects">View my work <span aria-hidden="true">→</span></a>
@@ -38,18 +38,48 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
             {profile.resume ? <a href={profile.resume}>View resume ↗</a> : <span class="pending-link">Resume coming soon</span>}
           </div>
         </div>
-        <figure class="portrait-frame">
-          <Image src={portrait} alt="Portrait of Dannar Zharkyn" widths={[400, 800, 1200]} sizes="(max-width: 650px) min(340px, 100vw - 48px), 360px" format="webp" loading="eager" fetchpriority="high" class="hero-portrait" />
-          <figcaption>Boston University <span>Systems Engineering</span></figcaption>
-        </figure>
+        <div class="systems-visual" aria-hidden="true">
+          <span class="visual-caption">COMPONENTS / CONNECTIONS / SYSTEMS</span>
+          <svg viewBox="0 0 440 440" fill="none">
+            <defs><pattern id="systems-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#f3b8cc" stroke-opacity=".07"/></pattern></defs>
+            <rect width="440" height="440" fill="url(#systems-grid)"/>
+            <circle cx="220" cy="220" r="162" stroke="#f3b8cc" stroke-opacity=".18" stroke-dasharray="3 8"/>
+            <circle cx="220" cy="220" r="110" stroke="#f3b8cc" stroke-opacity=".1"/>
+            <g stroke="#f3b8cc" stroke-opacity=".55">
+              <path d="M80 120H160V190M280 250V320H360M80 320H150V250M280 190V120H360"/>
+              <path d="M220 58V160M220 280V382" stroke-dasharray="4 6"/>
+              <rect x="160" y="160" width="120" height="120" rx="6" fill="#f3b8cc" fill-opacity=".04"/>
+              <rect x="178" y="178" width="84" height="84" rx="3" stroke-opacity=".2"/>
+              <path d="M207 220H233M220 207V233"/>
+            </g>
+            <g fill="#f3b8cc"><circle cx="80" cy="120" r="4"/><circle cx="360" cy="120" r="4"/><circle cx="80" cy="320" r="4"/><circle cx="360" cy="320" r="4"/><circle cx="220" cy="58" r="3"/><circle cx="220" cy="382" r="3"/></g>
+          </svg>
+          <span class="visual-caption visual-caption-bottom">INDIVIDUAL PARTS. A CONNECTED WHOLE.</span>
+        </div>
         <div class="hero-margin" aria-hidden="true"><span>01</span><span class="margin-line"></span><span>07</span></div>
       </div>
-      <div class="container hero-bottom"><span>Systems. Ideas. Possibilities.</span><a href="#projects">Explore the portfolio <span aria-hidden="true">↓</span></a></div>
+      <div class="container hero-bottom"><span>Systems. Ideas. Possibilities.</span><a href="#about">Meet Dannar <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section class="about-section dark-panel" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <figure class="portrait-frame">
+          <Image src={portrait} alt="Portrait of Dannar Zharkyn" widths={[400, 800, 1200]} sizes="(max-width: 650px) min(340px, 100vw - 48px), 360px" format="webp" loading="lazy" class="about-portrait" />
+          <figcaption>Boston University <span>Systems Engineering</span></figcaption>
+        </figure>
+        <div class="about-copy">
+          <p class="eyebrow">01 / Introduction</p><h2 id="about-title">About me</h2>
+          <p class="about-lead">I’m Dannar, a Systems Engineering MS candidate at Boston University, with a background in Computer Engineering and Software.</p>
+          <p class="muted">My work connects software, hardware, and systems modeling—from robotic-assistant controls and automated irrigation to multi-agent urban mobility analysis.</p>
+          <p class="muted">I’m interested in how individual components come together to build useful products and better systems.</p>
+          <div class="about-bottom">{profile.resume ? <a class="button" href={profile.resume}>View resume →</a> : <span class="resume-note">Resume <span>Coming soon</span></span>}<span class="editorial-note" aria-hidden="true">Systems.<br />People.<br />Possibilities.</span></div>
+        </div>
+      </div>
     </section>
 
     <section class="projects-section light-panel" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <div class="section-top"><div><p class="eyebrow">01 / The work</p><h2 id="projects-title">Featured projects</h2></div><span class="section-note">Case studies in preparation</span></div>
+        <div class="section-top"><div><p class="eyebrow">02 / The work</p><h2 id="projects-title">Featured projects</h2></div><span class="section-note">Case studies in preparation</span></div>
         <div class="project-stage">
           <div class="project-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span class="art-cross">+</span><span class="art-caption">FROM QUESTION TO OUTCOME</span></div>
           <div class="project-intro"><span class="status-label"><span aria-hidden="true"></span> Portfolio in progress</span><h3>The work behind<br />the outcome.</h3><p>Project case studies are coming soon, with a closer look at the problem, the decisions, and the results.</p><span class="small-note">Real projects. Documented process.</span></div>
@@ -59,12 +89,6 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
     </section>
 
     <div class="details-grid">
-      <section class="about-section dark-panel detail-panel" id="about" aria-labelledby="about-title">
-        <p class="eyebrow">02 / Introduction</p><h2 id="about-title">About me</h2>
-        <p class="about-lead">I’m Dannar, a Systems Engineering MS candidate at Boston University.</p>
-        <p class="muted">This portfolio is taking shape. Project stories, experience, and the process behind the work will be added here.</p>
-        <div class="about-bottom">{profile.resume ? <a class="button" href={profile.resume}>View resume →</a> : <span class="resume-note">Resume <span>Coming soon</span></span>}<span class="editorial-note" aria-hidden="true">Systems.<br />People.<br />Possibilities.</span></div>
-      </section>
       <section class="skills-section light-panel detail-panel" id="skills" aria-labelledby="skills-title">
         <p class="eyebrow">03 / Toolkit</p><h2 id="skills-title">Skills</h2>
         <div class="toolkit-symbols" aria-hidden="true"><span>&lt;/&gt;</span><span>⌘</span><span>◇</span></div>

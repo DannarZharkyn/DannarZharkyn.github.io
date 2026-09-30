@@ -40,12 +40,12 @@ nav a { font-size: .76rem; color: #d3ccd0; padding-block: .3rem; text-underline-
 nav a:hover { color: var(--pink); }
 .header-note { color: #a59ba1; font-size: .52rem; letter-spacing: .16em; }
 
-/* Full uncropped portrait, with editorial introduction */
-.hero { border-radius: 0 0 8px 8px; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1fr 360px 32px; gap: 3.5rem; align-items: center; padding-top: 2rem; }
+/* Professional identity first; the portrait appears in About. */
+.hero { min-height: calc(100svh - 76px); display: flex; flex-direction: column; justify-content: center; border-radius: 0 0 8px 8px; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr 32px; gap: 2.5rem; align-items: center; padding-block: 3rem 2rem; flex: 1; }
 h1 { font-size: clamp(4rem, 6.8vw, 6.5rem); font-weight: 300; letter-spacing: -.065em; line-height: .98; margin-bottom: 1.7rem; }
 h1 span { color: var(--pink); }
-.hero-label { font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1.1rem; }
+.hero-label { font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1.1rem; }
 .hero-label span { padding-inline: .35rem; color: var(--pink); }
 .hero-description { font-size: 1.06rem; max-width: 335px; color: #ddd5d9; line-height: 1.65; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.65rem; }
@@ -59,7 +59,7 @@ h1 span { color: var(--pink); }
 .link-divider { width: 1px; height: 15px; background: #5d4e56; }
 .pending-link { color: #bfb1b9; }
 .portrait-frame { width: 100%; position: relative; }
-.hero-portrait { display: block; width: 100%; height: auto; border-radius: 4px; }
+.about-portrait { display: block; width: 100%; height: auto; border-radius: 4px; }
 figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: space-between; gap: 1rem; padding-top: .7rem; }
 .hero-margin { display: flex; flex-direction: column; align-items: center; gap: 1rem; align-self: end; margin-bottom: 3rem; font-size: .66rem; color: #d8c2cc; }
 .margin-line { width: 1px; height: 90px; background: linear-gradient(var(--pink), #ffffff10); }
@@ -93,6 +93,13 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .details-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1440px; margin-inline: auto; }
 .detail-panel { padding: clamp(2rem, 4vw, 4rem); border-radius: 7px; min-width: 0; }
 .detail-panel h2 { margin-bottom: 1.7rem; }
+.about-section { padding-block: 5rem; border-top: 1px solid #3c3037; }
+.about-grid { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+.about-copy h2 { margin-bottom: 1.6rem; }
+.systems-visual { width: 100%; max-width: 440px; justify-self: center; position: relative; }
+.systems-visual svg { width: 100%; height: auto; display: block; }
+.visual-caption { display: block; color: #c9a3b3; font-family: monospace; font-size: .55rem; letter-spacing: .12em; }
+.visual-caption-bottom { text-align: right; }
 .about-lead { font-size: 1.08rem; line-height: 1.6; max-width: 430px; }
 .about-section .muted { max-width: 420px; margin-top: 1.1rem; }
 .about-bottom { display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-top: 2rem; }
@@ -108,7 +115,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .timeline-item::before { content: ''; position: absolute; left: -2.12rem; top: .4rem; width: 9px; height: 9px; border-radius: 50%; background: var(--pink); }
 .timeline h3 { font-size: .98rem; margin-bottom: .5rem; }
 .timeline p { font-size: .85rem; color: #bfb2b9; max-width: 360px; }
-.experience-section { grid-column: 1 / -1; }
+
 .education-section { padding-block: 3rem; border-radius: 7px; }
 .education-section .container { width: calc(100% - 64px); max-width: 1440px; }
 .education-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; }
@@ -162,7 +169,8 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
   nav a { font-size: .66rem; }
   .hero-grid { grid-template-columns: 1fr 270px; gap: 1.5rem; }
   h1 { font-size: 4.1rem; }
-  .hero-label { font-size: .6rem; }
+  .hero-label { font-size: .75rem; }
+  .about-grid { grid-template-columns: 270px minmax(0, 1fr); gap: 2rem; }
   .hero-description { font-size: .92rem; }
   .hero-actions { gap: .7rem; }
   .button { padding: .65rem .8rem; font-size: .72rem; gap: 1rem; }
@@ -174,7 +182,12 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
   .header-inner { flex-wrap: wrap; gap: .25rem; padding-block: .7rem; }
   .wordmark { font-size: 1.5rem; }
   nav { width: 100%; gap: .3rem 1rem; }
-  .hero-grid { grid-template-columns: 1fr; padding-top: 2.4rem; gap: 2rem; }
+  .hero { min-height: calc(100svh - 110px); }
+  .hero-grid { grid-template-columns: 1fr; padding-block: 2.4rem 1rem; gap: 2rem; }
+  .systems-visual { max-width: 230px; }
+  .visual-caption { font-size: .43rem; }
+  .about-section { padding-block: 3rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-copy { max-width: 400px; }
   h1 { font-size: clamp(3.8rem, 16vw, 5rem); }
   .hero-description { max-width: 300px; }
