@@ -2,7 +2,7 @@
 
 Scrolling portfolio for Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.
 
-The page includes Introduction / Resume, Projects, About, Skills, Experience, Education, and Contact. Sections without supplied content are clearly marked as forthcoming. GitHub is linked; resume, email, and LinkedIn remain unavailable until supplied. No project, experience, or skill claims have been invented.
+The page includes Introduction / Resume, Projects, About, Skills, Experience, Education, and Contact. Sections without supplied content are clearly marked as forthcoming. GitHub and LinkedIn are linked; resume and email remain unavailable until supplied. No project, experience, or skill claims have been invented.
 
 ## Architecture
 

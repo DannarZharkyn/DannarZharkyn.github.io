@@ -31,6 +31,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
             <a class="button button-outline" href="#contact">Get in touch</a>
           </div>
           <div class="hero-links">
+            {profile.linkedin && <a href={profile.linkedin} aria-label="Dannar Zharkyn on LinkedIn">LinkedIn <span aria-hidden="true">↗</span></a>}
             <a href={profile.github} aria-label="Dannar Zharkyn on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.09c-3.12.68-3.78-1.33-3.78-1.33-.5-1.29-1.24-1.64-1.24-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.49-.29-5.11-1.25-5.11-5.54 0-1.22.44-2.22 1.15-3-.11-.29-.5-1.43.11-2.97 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.22 2.68.11 2.97.72.78 1.15 1.78 1.15 3 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg><span>GitHub</span></a>
             <span class="link-divider" aria-hidden="true"></span>
             {profile.resume ? <a href={profile.resume}>View resume ↗</a> : <span class="pending-link">Resume coming soon</span>}
@@ -80,7 +81,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container contact-inner">
-        <div><p class="eyebrow">06 / Contact</p><h2 id="contact-title">Let’s connect.</h2><p>Find me on GitHub. More ways to connect coming soon.</p></div>
+        <div><p class="eyebrow">06 / Contact</p><h2 id="contact-title">Let’s connect.</h2><p>Connect with me on LinkedIn or explore my work on GitHub.</p></div>
         <div class="contact-links">
           <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
           {profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : <span>LinkedIn <small>Coming soon</small></span>}
