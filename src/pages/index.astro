@@ -15,7 +15,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
       <nav aria-label="Main navigation">
         {navigation.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}
       </nav>
-      <span class="header-note" aria-hidden="true">PORTFOLIO / 01</span>
+
     </div>
   </header>
 
@@ -23,7 +23,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
     <section class="hero dark-panel" id="introduction" aria-labelledby="intro-title">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Engineering portfolio</p>
+
           <h1 id="intro-title">Dannar<br /><span>Zharkyn</span></h1>
           <p class="hero-label">Systems Engineer <span aria-hidden="true">·</span> Product Builder</p>
           <p class="hero-description">A Systems Engineering MS candidate at Boston University.</p>
@@ -39,7 +39,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
           </div>
         </div>
         <div class="systems-visual" aria-hidden="true">
-          <span class="visual-caption">COMPONENTS / CONNECTIONS / SYSTEMS</span>
+
           <svg viewBox="0 0 440 440" fill="none">
             <defs><pattern id="systems-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#f3b8cc" stroke-opacity=".07"/></pattern></defs>
             <rect width="440" height="440" fill="url(#systems-grid)"/>
@@ -54,11 +54,9 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
             </g>
             <g fill="#f3b8cc"><circle cx="80" cy="120" r="4"/><circle cx="360" cy="120" r="4"/><circle cx="80" cy="320" r="4"/><circle cx="360" cy="320" r="4"/><circle cx="220" cy="58" r="3"/><circle cx="220" cy="382" r="3"/></g>
           </svg>
-          <span class="visual-caption visual-caption-bottom">INDIVIDUAL PARTS. A CONNECTED WHOLE.</span>
+
         </div>
-        <div class="hero-margin" aria-hidden="true"><span>01</span><span class="margin-line"></span><span>07</span></div>
       </div>
-      <div class="container hero-bottom"><span>Systems. Ideas. Possibilities.</span><a href="#about">Meet Dannar <span aria-hidden="true">↓</span></a></div>
     </section>
 
     <section class="about-section dark-panel" id="about" aria-labelledby="about-title">
@@ -68,21 +66,21 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
           <figcaption>Boston University <span>Systems Engineering</span></figcaption>
         </figure>
         <div class="about-copy">
-          <p class="eyebrow">01 / Introduction</p><h2 id="about-title">About me</h2>
+          <h2 id="about-title">About me</h2>
           <p class="about-lead">I’m Dannar, a Systems Engineering MS candidate at Boston University, with a background in Computer Engineering and Software.</p>
           <p class="muted">My work connects software, hardware, and systems modeling—from robotic-assistant controls and automated irrigation to multi-agent urban mobility analysis.</p>
           <p class="muted">I’m interested in how individual components come together to build useful products and better systems.</p>
-          <div class="about-bottom">{profile.resume ? <a class="button" href={profile.resume}>View resume →</a> : <span class="resume-note">Resume <span>Coming soon</span></span>}<span class="editorial-note" aria-hidden="true">Systems.<br />People.<br />Possibilities.</span></div>
+          <div class="about-bottom">{profile.resume ? <a class="button" href={profile.resume}>View resume →</a> : <span class="resume-note">Resume <span>Coming soon</span></span>}</div>
         </div>
       </div>
     </section>
 
     <section class="projects-section light-panel" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <div class="section-top"><div><p class="eyebrow">02 / The work</p><h2 id="projects-title">Featured projects</h2></div><span class="section-note">Case studies in preparation</span></div>
+        <div class="section-top"><div><h2 id="projects-title">Featured projects</h2></div><span class="section-note">Case studies in preparation</span></div>
         <div class="project-stage">
-          <div class="project-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span class="art-cross">+</span><span class="art-caption">FROM QUESTION TO OUTCOME</span></div>
-          <div class="project-intro"><span class="status-label"><span aria-hidden="true"></span> Portfolio in progress</span><h3>The work behind<br />the outcome.</h3><p>Project case studies are coming soon, with a closer look at the problem, the decisions, and the results.</p><span class="small-note">Real projects. Documented process.</span></div>
+          <div class="project-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><span class="art-cross">+</span></div>
+          <div class="project-intro"><span class="status-label"><span aria-hidden="true"></span> Portfolio in progress</span><h3>The work behind<br />the outcome.</h3><p>Project case studies are coming soon, with a closer look at the problem, the decisions, and the results.</p></div>
         </div>
         <ol class="process" aria-label="Future case-study structure">{process.map((step, index) => <li><span>0{index + 1}</span>{step}</li>)}</ol>
       </div>
@@ -90,19 +88,19 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
 
     <div class="details-grid">
       <section class="skills-section light-panel detail-panel" id="skills" aria-labelledby="skills-title">
-        <p class="eyebrow">03 / Toolkit</p><h2 id="skills-title">Skills</h2>
+        <h2 id="skills-title">Skills</h2>
         <div class="toolkit-symbols" aria-hidden="true"><span>&lt;/&gt;</span><span>⌘</span><span>◇</span></div>
         <h3>Skills with a story behind them.</h3><p class="muted">Technical tools and capabilities will be added alongside the projects that demonstrate them.</p><p class="section-note skills-note">Details coming soon</p>
       </section>
       <section class="experience-section dark-panel detail-panel" id="experience" aria-labelledby="experience-title">
-        <p class="eyebrow">04 / Experience</p><h2 id="experience-title">Experience</h2>
+        <h2 id="experience-title">Experience</h2>
         <div class="timeline"><div class="timeline-item"><h3>Experience details coming soon.</h3><p>Roles, responsibilities, and contributions will be documented here.</p></div></div>
       </section>
     </div>
 
     <section class="education-section light-panel" id="education" aria-labelledby="education-title">
       <div class="container">
-        <div class="section-top"><div><p class="eyebrow">05 / Education</p><h2 id="education-title">Education</h2></div><span class="section-note">Degrees & international exchanges</span></div>
+        <div class="section-top"><div><h2 id="education-title">Education</h2></div><span class="section-note">Degrees & international exchanges</span></div>
         <div class="education-grid">
           {education.map(entry => (
             <article class="education-card">
@@ -119,7 +117,7 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container contact-inner">
-        <div><p class="eyebrow">06 / Contact</p><h2 id="contact-title">Let’s connect.</h2><p>Connect with me on LinkedIn or explore my work on GitHub.</p></div>
+        <div><h2 id="contact-title">Let’s connect.</h2><p>Connect with me on LinkedIn or explore my work on GitHub.</p></div>
         <div class="contact-links">
           <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
           {profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : <span>LinkedIn <small>Coming soon</small></span>}
@@ -130,5 +128,5 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container"><a class="wordmark" href="#introduction" aria-label="Dannar Zharkyn — back to top">DZ</a><p>© {new Date().getFullYear()} Dannar Zharkyn</p><a href="#introduction">Back to top ↑</a></div></footer>
+  <footer class="site-footer"><div class="container"><p>© {new Date().getFullYear()} Dannar Zharkyn</p></div></footer>
 </BaseLayout>
