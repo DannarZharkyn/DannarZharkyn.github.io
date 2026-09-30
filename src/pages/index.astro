@@ -99,7 +99,9 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
         <div class="contact-links">
           <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
           {profile.linkedin ? <a href={profile.linkedin}>LinkedIn ↗</a> : <span>LinkedIn <small>Coming soon</small></span>}
-          {profile.email ? <a href={`mailto:${profile.email}`}>Email ↗</a> : <span>Email <small>Coming soon</small></span>}
+          <div class="contact-emails" aria-label="Email addresses">
+            {profile.emails.map(email => <a href={`mailto:${email}`}>{email} <span aria-hidden="true">↗</span></a>)}
+          </div>
         </div>
       </div>
     </section>

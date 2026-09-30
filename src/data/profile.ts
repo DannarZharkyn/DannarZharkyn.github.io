@@ -6,6 +6,6 @@ export const profile = {
   university: 'Boston University',
   github: 'https://github.com/DannarZharkyn',
   linkedin: 'https://www.linkedin.com/in/dannarzharkyn/',
-  email: '',
+  emails: ['DannarZharkyn@gmail.com', 'dannar@bu.edu'],
   resume: '',
 };

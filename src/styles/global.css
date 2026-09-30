@@ -140,6 +140,8 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .contact-links > a { border-bottom: 1px solid #65404f; padding-block: .4rem; }
 .contact-links > span { display: flex; flex-direction: column; color: #5d4250; }
 .contact-links small { font-size: .56rem; margin-top: .1rem; }
+.contact-emails { display: flex; flex-direction: column; gap: .5rem; }
+.contact-emails a { overflow-wrap: anywhere; font-size: .78rem; }
 .site-footer { color: #b4a7ae; background: #121213; padding-block: 1.5rem; }
 .site-footer .container { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: .65rem; }
 .site-footer .wordmark { font-size: 1.4rem; }
