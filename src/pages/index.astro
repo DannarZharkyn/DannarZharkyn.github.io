@@ -79,21 +79,14 @@ const process = ['Problem', 'My role', 'Process', 'Engineering & design decision
     <section class="education-section light-panel" id="education" aria-labelledby="education-title">
       <div class="container">
         <div class="section-top"><div><p class="eyebrow">05 / Education</p><h2 id="education-title">Education</h2></div><span class="section-note">Degrees & international exchanges</span></div>
-        <div class="education-list">
+        <div class="education-grid">
           {education.map(entry => (
-            <article class="education-entry">
-              <div class="education-meta"><p class="education-dates">{entry.dates}</p><span class="degree-label">{entry.degree}</span>{entry.status && <span class="education-status">{entry.status}</span>}</div>
-              <div class="education-content">
-                <h3>{entry.institution}</h3><p class="education-field">{entry.field}</p>
-                {entry.highlights.length > 0 && <ul class="education-bullets">{entry.highlights.map(item => <li>{item}</li>)}</ul>}
-                {entry.honors.length > 0 && <div class="education-honors"><h4>Honors & awards</h4><ul class="education-bullets">{entry.honors.map(item => <li>{item}</li>)}</ul></div>}
-                {entry.exchange && <aside class="education-exchange" aria-label={`Exchange at ${entry.exchange.institution}`}>
-                  <div class="exchange-top"><span class="exchange-label">International exchange</span><span>{entry.exchange.dates}</span></div>
-                  <h4>{entry.exchange.institution}</h4><p>{entry.exchange.program}</p>
-                  {'field' in entry.exchange && <p>{entry.exchange.field}</p>}
-                  <ul class="education-bullets">{entry.exchange.highlights.map(item => <li>{item}</li>)}</ul>
-                </aside>}
-              </div>
+            <article class="education-card">
+              <span class="degree-label">{entry.degree}</span>
+              <h3>{entry.institution}</h3>
+              <p class="education-field">{entry.field}</p>
+              <p class="education-dates">{entry.dates}</p>
+              <ul class="education-bullets">{entry.highlights.map(item => <li>{item}</li>)}</ul>
             </article>
           ))}
         </div>
