@@ -110,24 +110,22 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .timeline p { font-size: .85rem; color: #bfb2b9; max-width: 360px; }
 .experience-section { grid-column: 1 / -1; }
 .education-section { padding-block: 3rem; border-radius: 7px; }
-.education-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.education-card { aspect-ratio: 1; padding: 1.4rem; background: #fcfafb; border: 1px solid #e1d3da; border-radius: 6px; min-width: 0; }
+.education-section .container { width: calc(100% - 64px); max-width: 1440px; }
+.education-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; }
+.education-card { padding: 1rem; background: #fcfafb; border: 1px solid #e1d3da; border-radius: 6px; min-width: 0; }
 .degree-label { display: inline-block; font-size: .61rem; letter-spacing: .03em; color: #7c3d59; background: #eedee5; padding: .25rem .6rem; border-radius: 3px; margin-bottom: .85rem; }
-.education-card h3 { font-size: 1.12rem; letter-spacing: -.025em; line-height: 1.25; margin-bottom: .45rem; }
+.education-card h3 { font-size: 1rem; letter-spacing: -.025em; line-height: 1.25; margin-bottom: .45rem; }
 .education-field { font-size: .78rem; line-height: 1.45; color: #53474e; }
 .education-card .education-dates { font-size: .66rem; color: #766571; margin-top: .65rem; }
-.education-bullets { border-top: 1px solid #e9dfe4; padding: .85rem 0 0 1rem; margin: .9rem 0 0; font-size: .76rem; color: #625861; line-height: 1.5; }
+.education-bullets { border-top: 1px solid #e9dfe4; padding: .65rem 0 0 1rem; margin: .7rem 0 0; font-size: .76rem; color: #625861; line-height: 1.5; }
 .education-bullets li + li { margin-top: .4rem; }
 .education-bullets li::marker { color: #a9637e; }
-@media (min-width: 1800px) {
-  .education-section .container { width: calc(100% - 96px); max-width: 1800px; }
-  .education-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-}
 @media (max-width: 1000px) {
   .education-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 650px) {
   .education-section { padding-block: 2.5rem; }
+  .education-section .container { width: calc(100% - 48px); }
   .education-grid { grid-template-columns: 1fr; }
   .education-card { padding: 1.25rem; }
 }
