@@ -2,7 +2,7 @@
 
 Scrolling portfolio for Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.
 
-The page includes Introduction / Resume, Projects, Experience, Skills, Education, and Contact. Sections without supplied content are clearly marked as forthcoming. GitHub is linked; resume, email, and LinkedIn remain unavailable until supplied. No project, experience, or skill claims have been invented.
+The page includes Introduction / Resume, Projects, About, Skills, Experience, Education, and Contact. Sections without supplied content are clearly marked as forthcoming. GitHub is linked; resume, email, and LinkedIn remain unavailable until supplied. No project, experience, or skill claims have been invented.
 
 ## Architecture
 
@@ -39,7 +39,7 @@ src/
   content/projects/          Reserved for future Markdown case studies (empty)
   layouts/BaseLayout.astro   Shared HTML document and SEO metadata
   data/profile.ts            Confirmed profile details and optional contact/resume URLs
-  pages/index.astro          Six-section scrolling home page
+  pages/index.astro          Scrolling home page with seven sections
   styles/global.css         Responsive base styling
 astro.config.mjs            Static output and canonical site URL
 package.json                Commands and single direct dependency
