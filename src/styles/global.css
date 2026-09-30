@@ -61,25 +61,27 @@ h1 span { color: var(--pink); }
 .about-portrait { display: block; width: 100%; height: auto; border-radius: 4px; }
 figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: space-between; gap: 1rem; padding-top: .7rem; }
 
-/* Featured work: intentionally no invented project cards */
+/* Repository-backed project cards */
 .projects-section { padding-block: 3.2rem 2.5rem; border-radius: 8px; }
 .section-top { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.8rem; }
 .section-top .eyebrow { margin-bottom: .55rem; }
 .section-note { font-size: .7rem; color: var(--muted); }
-.project-stage { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #e5dade; border-radius: 6px; overflow: hidden; background: #fcfafb; }
-.project-art { min-height: 265px; background: linear-gradient(135deg, #d5a5b5, #ecd0da 60%, #f8eaf0); position: relative; display: grid; place-items: center; overflow: hidden; }
-.orbit { position: absolute; width: 210px; height: 130px; border: 1px solid #84526b77; border-radius: 50%; transform: rotate(-30deg); }
-.orbit-two { transform: rotate(30deg); }
-.orbit-three { transform: rotate(90deg); }
-.art-cross { font-size: 2rem; font-weight: 200; color: #76465c; }
-.project-intro { padding: 2rem 2.5rem; }
-.status-label { font-size: .61rem; color: #75505f; display: flex; align-items: center; gap: .5rem; }
-.status-label > span { width: 5px; height: 5px; border-radius: 50%; background: #b26484; }
-.project-intro h3 { font-size: 1.85rem; line-height: 1.12; letter-spacing: -.04em; margin-block: 1rem; }
-.project-intro p { font-size: .8rem; color: var(--muted); max-width: 360px; }
-.process { display: grid; grid-template-columns: repeat(6, 1fr); list-style: none; padding: 0; margin: 1.5rem 0 0; gap: 1rem; }
-.process li { font-size: .63rem; color: #62565d; padding-top: .65rem; border-top: 1px solid #d7c8cf; }
-.process li span { display: block; margin-bottom: .35rem; font-size: .55rem; color: #965570; }
+.project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.project-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #e7dfe2; border-radius: 6px; overflow: hidden; background: #faf8f8; }
+.project-preview { aspect-ratio: 1.65; background: #eae2e6; overflow: hidden; }
+.project-preview img, .project-preview svg { display: block; width: 100%; height: 100%; object-fit: cover; }
+.project-preview.terrier { background: #e9ddd0; }
+.project-preview.terrier img { object-fit: contain; padding: .5rem; }
+.project-card-body { display: flex; flex-direction: column; flex: 1; padding: 1rem; }
+.project-card h3 { font-size: 1.02rem; font-weight: 500; letter-spacing: -.025em; margin-bottom: .4rem; }
+.project-card p { font-size: .78rem; line-height: 1.55; color: #655e64; }
+.project-tags { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: .85rem 0 1.2rem; gap: .3rem; }
+.project-tags li { font-size: .57rem; color: #55474f; background: #eee6ea; padding: .15rem .35rem; border-radius: 2px; }
+.project-card-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; margin-top: auto; padding-top: .7rem; border-top: 1px solid #e8dfe3; font-size: .68rem; }
+.project-card-links a { color: #733d55; }
+.project-unavailable { color: #766973; font-size: .63rem; }
+@media (max-width: 1000px) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) { .project-grid { grid-template-columns: 1fr; } }
 
 /* Alternating editorial panels */
 .details-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1440px; margin-inline: auto; }
@@ -145,7 +147,6 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 @media (max-width: 1050px) {
   .hero-grid { grid-template-columns: 1fr 320px; gap: 2.5rem; }
   .hero-label { letter-spacing: .1em; }
-  .project-intro { padding: 1.7rem; }
   .contact-inner { gap: 2rem; }
   .contact-links { gap: 1.2rem; }
 }
@@ -181,10 +182,6 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
   .portrait-frame { width: min(100%, 340px); justify-self: center; }
   .projects-section { padding-block: 2.4rem; }
   .section-top { align-items: start; flex-direction: column; gap: .6rem; }
-  .project-stage { grid-template-columns: 1fr; }
-  .project-art { min-height: 210px; }
-  .project-intro { padding: 1.5rem; }
-  .process { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .details-grid { grid-template-columns: 1fr; }
   .detail-panel { padding: 2.5rem 1.5rem; }
   .detail-panel h2 { margin-bottom: 1.3rem; }
