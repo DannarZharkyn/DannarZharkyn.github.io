@@ -113,8 +113,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .details-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1440px; margin-inline: auto; }
 .detail-panel { padding: clamp(2rem, 4vw, 4rem); border-radius: 7px; min-width: 0; }
 .detail-panel h2 { margin-bottom: 1.7rem; }
-/* A quiet paper band separates the two dark introductory sections. */
-.about-section { padding-block: 5rem; border-top: clamp(24px, 3vw, 38px) solid var(--paper); }
+.about-section { padding-block: 5rem; border-top: 1px solid #3c3037; }
 .about-grid { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; }
 .about-copy h2 { margin-bottom: 1.6rem; }
 .systems-visual { width: 100%; max-width: 440px; justify-self: center; position: relative; }
