@@ -110,8 +110,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 @media (max-width: 650px) { .project-grid { grid-template-columns: 1fr; } }
 
 /* Alternating editorial panels */
-.details-grid { display: grid; grid-template-columns: 1fr 1fr; max-width: 1440px; margin-inline: auto; }
-.detail-panel { padding: clamp(2rem, 4vw, 4rem); border-radius: 7px; min-width: 0; }
+.detail-panel { padding-block: clamp(2rem, 4vw, 4rem); border-radius: 7px; min-width: 0; }
 .detail-panel h2 { margin-bottom: 1.7rem; }
 .about-section { padding-block: 5rem; border-top: 1px solid #3c3037; }
 .about-grid { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; }
@@ -124,7 +123,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .resume-note { display: flex; flex-direction: column; gap: .2rem; font-size: .78rem; padding-left: .8rem; border-left: 2px solid var(--pink); }
 .resume-note span { font-size: .63rem; color: #bfaeb7; }
 /* Compact editorial skill groups, sized to the available panel width. */
-.skills-section { container-type: inline-size; }
+.skills-content { container-type: inline-size; }
 .skills-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
 .skill-icon { display: block; width: 28px; height: 28px; margin-bottom: 1.2rem; color: #292529; }
 .skill-group h3 { min-height: 3em; font-size: .78rem; font-weight: 600; line-height: 1.5; margin-bottom: 1.2rem; }
@@ -195,7 +194,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
   .hero-description { font-size: .92rem; }
   .hero-actions { gap: .7rem; }
   .button { padding: .65rem .8rem; font-size: .72rem; gap: 1rem; }
-  .detail-panel { padding: 2rem; }
+  .detail-panel { padding-block: 2rem; }
   .contact-inner { align-items: start; flex-direction: column; }
 }
 @media (max-width: 650px) {
@@ -215,8 +214,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
   .portrait-frame { width: min(100%, 340px); justify-self: center; }
   .projects-section { padding-block: 2.4rem; }
   .section-top { align-items: start; flex-direction: column; gap: .6rem; }
-  .details-grid { grid-template-columns: 1fr; }
-  .detail-panel { padding: 2.5rem 1.5rem; }
+  .detail-panel { padding-block: 2.5rem; }
   .detail-panel h2 { margin-bottom: 1.3rem; }
   .contact-section { padding-block: 2.4rem; }
   .contact-links { justify-content: space-between; width: 100%; gap: 1rem; }

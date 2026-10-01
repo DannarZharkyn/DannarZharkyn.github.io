@@ -2,6 +2,7 @@
 import { skillGroups } from '../data/skills';
 ---
 <section class="skills-section light-panel detail-panel" id="skills" aria-labelledby="skills-title">
+  <div class="container skills-content">
   <h2 id="skills-title">Skills</h2>
   <div class="skills-grid">
     {skillGroups.map(group => (
@@ -16,5 +17,6 @@ import { skillGroups } from '../data/skills';
         {group.items.length > 0 ? <ul>{group.items.map(item => <li>{item}</li>)}</ul> : <p class="skill-pending">Details coming soon</p>}
       </div>
     ))}
+  </div>
   </div>
 </section>
