@@ -8,7 +8,7 @@ The page includes Introduction / Resume, Projects, About, Skills, Experience, Ed
 
 Astro generates static HTML and CSS for GitHub Pages. Plain CSS and system fonts keep the site lightweight; the starter sends no JavaScript to visitors. There is no backend, UI framework, or external font service. Node.js is used only for development and building.
 
-Future case studies will use Markdown and a shared Astro layout. This avoids duplicated page markup while keeping project writing separate from presentation. A content schema and project routes will be added with the first real project, when its metadata requirements are known.
+Project cards and case studies share typed content in `src/data/projects.ts`. A single static route and shared layout generate every project page. No client router or backend is required; direct links and refreshes work on GitHub Pages.
 
 ## Local development
 
@@ -37,10 +37,15 @@ The generated site is in `dist/`, which should not be committed. Commit `package
 public/                      Future images, resume PDF, and other static assets
 src/
   content/projects/          Reserved for future Markdown case studies (empty)
+  components/               Shared navigation, project visuals, and content blocks
   layouts/BaseLayout.astro   Shared HTML document and SEO metadata
+  layouts/ProjectLayout.astro Reusable engineering case-study layout
+  data/projects.ts           Project metadata and optional case-study content
+  pages/projects/[slug].astro Static route for each project
   data/profile.ts            Confirmed profile details and optional contact/resume URLs
   pages/index.astro          Scrolling home page with seven sections
   styles/global.css         Responsive base styling
+  styles/project.css        Case-study styles
 astro.config.mjs            Static output and canonical site URL
 package.json                Commands and single direct dependency
 package-lock.json           Reproducible dependency versions
@@ -52,20 +57,31 @@ Add reusable UI components under `src/components/` when needed. Avoid creating e
 
 To add contact details, edit `src/data/profile.ts`. For a resume, place the PDF at `public/resume.pdf` and set `resume` to `/resume.pdf`. Empty values display non-interactive coming-soon text rather than broken links. Section copy is in `src/pages/index.astro`.
 
-## Future project workflow
+## Adding and editing projects
 
-When the first case study is ready, add a Markdown file under `src/content/projects/`, define its metadata in an Astro content collection, and add a shared case-study layout and `src/pages/projects/[slug].astro` route. Later projects can then reuse that pipeline by adding Markdown and assets.
+1. Add images under `src/assets/projects/` and import them in `src/data/projects.ts`.
+2. Add a project entry with a unique URL-safe `slug`, `name`, `description`, confirmed `tags`, `image`, `imageAlt`, and `visual` class. Use an imported image for new projects. The current `null` image is reserved for Urban Mobility’s illustrative intersection diagram.
+3. Set `demo` and `repository` only when public links exist. Omit them or use empty strings to hide the external buttons.
+4. Fill in `overview.purpose`, `overview.problem`, and `overview.role` when confirmed. Until then, the page shows explicit “To be added” labels.
+5. Add `technical`, `process`, and `results` arrays using the `ProjectBlock` interface. Each block supports an optional heading, paragraphs, bullets, and an imported image with alt text and a caption. Omitted/empty sections show labeled placeholders.
+6. Run `npm run build` and preview the page. The homepage card and `/projects/<slug>/` page are generated automatically—no new route or layout file needed.
 
-Each case study will follow:
+Example block structure (replace the example text with verified content before publishing):
 
-1. Problem
-2. My Role
-3. Process
-4. Engineering/Design Decisions
-5. Implementation
-6. Results
+```ts
+technical: [
+  {
+    title: 'System architecture',
+    paragraphs: ['Verified explanation of the architecture.'],
+    bullets: ['A documented engineering decision.'],
+    // image: importedDiagram,
+    // imageAlt: 'Describe the diagram for screen readers.',
+    // caption: 'Explain what the diagram shows.',
+  },
+],
+```
 
-These are planned sections, not claims about completed work. Add only supplied facts and evidence.
+The shared `ProjectLayout.astro` provides Overview, Technical Approach, Process / Development, Results / Impact, conditional external buttons, and “Back to Projects” navigation. Existing descriptions and tags are retained; detailed technical claims, roles, and results must be supplied before replacing placeholders. The empty `src/content/projects/` folder is reserved for a possible later Markdown workflow and is not currently used.
 
 ## GitHub Pages deployment
 

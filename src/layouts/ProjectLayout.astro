@@ -1,0 +1,63 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import ProjectVisual from '../components/ProjectVisual.astro';
+import ProjectBlocks from '../components/ProjectBlocks.astro';
+import type { Project } from '../data/projects';
+import '../styles/project.css';
+interface Props { project: Project; }
+const { project } = Astro.props;
+const back = `${import.meta.env.BASE_URL}#projects`;
+const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical'], ['Process / Development', 'process'], ['Results / Impact', 'results'] ];
+---
+<BaseLayout title={`${project.name} | Dannar Zharkyn`} description={project.description}>
+  <a class="skip-link" href="#case-content">Skip to case study</a>
+  <SiteHeader />
+  <main class="case-study" id="case-content">
+    <header class="case-hero dark-panel">
+      <div class="container">
+        <a class="case-back" href={back}>← Back to Projects</a>
+        <div class="case-hero-grid">
+          <div>
+            <h1 class="case-title">{project.name}</h1>
+            <p class="case-description">{project.description}</p>
+            <ul class="project-tags case-tags" aria-label="Project categories">{project.tags.map(tag => <li>{tag}</li>)}</ul>
+            {(project.demo || project.repository) && <div class="case-external" aria-label="External project resources">
+              {project.demo && <a class="button button-outline" href={project.demo}>Live Project</a>}
+              {project.repository && <a class="button button-outline" href={project.repository}>GitHub / Source Code</a>}
+            </div>}
+          </div>
+          <div><ProjectVisual project={project} large />{!project.image && <p class="case-image-note">Illustrative system diagram</p>}</div>
+        </div>
+      </div>
+    </header>
+    <div class="case-body light-panel">
+      <div class="container">
+        <nav class="case-nav" aria-label="Case study sections">{sections.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}</nav>
+        <section class="case-section" id="overview" aria-labelledby="overview-title">
+          <h2 id="overview-title">Overview</h2>
+          <div class="case-overview-grid">
+            <div><h3>The project</h3><p>{project.description}</p></div>
+            <div><h3>Why it was created</h3>{project.overview?.purpose ? <p>{project.overview.purpose}</p> : <p class="case-pending">To be added: project context and motivation.</p>}</div>
+            <div><h3>The problem</h3>{project.overview?.problem ? <p>{project.overview.problem}</p> : <p class="case-pending">To be added: the need, constraints, and intended users.</p>}</div>
+            <div><h3>My role</h3>{project.overview?.role ? <p>{project.overview.role}</p> : <p class="case-pending">To be added: responsibilities and individual contributions.</p>}</div>
+          </div>
+        </section>
+        <section class="case-section" id="technical" aria-labelledby="technical-title">
+          <h2 id="technical-title">Technical Approach</h2>
+          <ProjectBlocks blocks={project.technical} placeholder="Architecture, tools, engineering decisions, implementation, and technical challenges will be documented here." />
+        </section>
+        <section class="case-section" id="process" aria-labelledby="process-title">
+          <h2 id="process-title">Process / Development</h2>
+          <ProjectBlocks blocks={project.process} placeholder="Development stages, prototypes, screenshots, and diagrams will be added here." />
+        </section>
+        <section class="case-section" id="results" aria-labelledby="results-title">
+          <h2 id="results-title">Results / Impact</h2>
+          <ProjectBlocks blocks={project.results} placeholder="Verified outcomes, testing evidence, and lessons learned will be added here. No results are reported yet." />
+        </section>
+        <div class="case-end"><a class="case-back" href={back}>← Back to Projects</a></div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container"><p>© {new Date().getFullYear()} Dannar Zharkyn</p></div></footer>
+</BaseLayout>

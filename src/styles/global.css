@@ -77,9 +77,8 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .project-card p { font-size: .78rem; line-height: 1.55; color: #655e64; }
 .project-tags { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: .85rem 0 1.2rem; gap: .3rem; }
 .project-tags li { font-size: .57rem; color: #55474f; background: #eee6ea; padding: .15rem .35rem; border-radius: 2px; }
-.project-card-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; margin-top: auto; padding-top: .7rem; border-top: 1px solid #e8dfe3; font-size: .68rem; }
-.project-card-links a { color: #733d55; }
-.project-unavailable { color: #766973; font-size: .63rem; }
+.project-card-actions { margin-top: auto; padding-top: .4rem; }
+.project-view-button { width: 100%; font-size: .78rem; padding-block: .7rem; }
 @media (max-width: 1000px) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 650px) { .project-grid { grid-template-columns: 1fr; } }
 

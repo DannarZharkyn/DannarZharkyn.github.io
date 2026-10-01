@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/projects';
+interface Props { project: Project; large?: boolean; }
+const { project, large = false } = Astro.props;
+---
+<div class:list={['project-preview', project.visual, { 'case-visual': large }]}>
+  {project.image ? <Image src={project.image} alt={project.imageAlt} widths={large ? [600, 1000, 1400] : [400, 800]} sizes={large ? '(max-width: 800px) 100vw, 560px' : '(max-width: 650px) calc(100vw - 48px), (max-width: 1000px) 45vw, 280px'} format="webp" loading={large ? 'eager' : 'lazy'} /> :
+<svg viewBox="0 0 400 250" role="img" aria-label="Schematic illustration of a four-way traffic intersection">
+                    <rect width="400" height="250" fill="#e6e3e5"/>
+                    <g fill="#d4cdd1"><rect x="18" y="18" width="118" height="48" rx="4"/><rect x="264" y="18" width="118" height="48" rx="4"/><rect x="18" y="184" width="118" height="48" rx="4"/><rect x="264" y="184" width="118" height="48" rx="4"/></g>
+                    <path d="M0 125H400M200 0V250" stroke="#575058" stroke-width="80"/>
+                    <path d="M0 125H155M245 125H400M200 0V80M200 170V250" stroke="#e9e1e6" stroke-width="2" stroke-dasharray="12 10"/>
+                    <g fill="#edabc5"><rect x="70" y="139" width="25" height="12" rx="3"/><rect x="112" y="139" width="25" height="12" rx="3"/><rect x="213" y="36" width="12" height="25" rx="3"/></g>
+                    <g fill="#f8f5f7"><rect x="293" y="99" width="25" height="12" rx="3"/><rect x="175" y="193" width="12" height="25" rx="3"/></g>
+                    <g fill="#a34f72"><circle cx="148" cy="74" r="5"/><circle cx="252" cy="176" r="5"/></g>
+                  </svg>}
+</div>

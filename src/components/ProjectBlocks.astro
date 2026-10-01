@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import type { ProjectBlock } from '../data/projects';
+interface Props { blocks?: ProjectBlock[]; placeholder: string; }
+const { blocks, placeholder } = Astro.props;
+---
+{blocks?.length ? <div class="case-blocks">{blocks.map(block => (
+  <div class="case-block">
+    {block.title && <h3>{block.title}</h3>}
+    {block.paragraphs?.map(paragraph => <p>{paragraph}</p>)}
+    {block.bullets?.length && <ul>{block.bullets.map(item => <li>{item}</li>)}</ul>}
+    {block.image && <figure><Image src={block.image} alt={block.imageAlt ?? ''} widths={[600, 1000, 1400]} sizes="(max-width: 800px) 100vw, 800px" format="webp" loading="lazy" />{block.caption && <figcaption>{block.caption}</figcaption>}</figure>}
+  </div>
+))}</div> : <div class="case-placeholder"><span>Content to be added</span><p>{placeholder}</p></div>}

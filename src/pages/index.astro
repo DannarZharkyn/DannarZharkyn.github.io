@@ -5,19 +5,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { profile } from '../data/profile';
 import { education } from '../data/education';
 import { projects } from '../data/projects';
-const navigation = [ ['Home', 'introduction'], ['About', 'about'], ['Projects', 'projects'], ['Experience', 'experience'], ['Skills', 'skills'], ['Education', 'education'], ['Contact', 'contact'] ];
+import SiteHeader from '../components/SiteHeader.astro';
+import ProjectVisual from '../components/ProjectVisual.astro';
 ---
 <BaseLayout title="Dannar Zharkyn | Engineering Portfolio" description="Engineering portfolio of Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="wordmark" href="#introduction" aria-label="Dannar Zharkyn — home">DZ</a>
-      <nav aria-label="Main navigation">
-        {navigation.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}
-      </nav>
-
-    </div>
-  </header>
+  <SiteHeader onHome />
 
   <main id="main">
     <section class="hero dark-panel" id="introduction" aria-labelledby="intro-title">
@@ -80,26 +73,13 @@ const navigation = [ ['Home', 'introduction'], ['About', 'about'], ['Projects', 
         <div class="project-grid">
           {projects.map(project => (
             <article class="project-card">
-              <div class={`project-preview ${project.visual}`}>
-                {project.image ? <Image src={project.image} alt={project.imageAlt} widths={[400, 800]} sizes="(max-width: 650px) calc(100vw - 48px), (max-width: 1000px) 45vw, 280px" format="webp" loading="lazy" /> :
-                  <svg viewBox="0 0 400 250" role="img" aria-label="Schematic illustration of a four-way traffic intersection">
-                    <rect width="400" height="250" fill="#e6e3e5"/>
-                    <g fill="#d4cdd1"><rect x="18" y="18" width="118" height="48" rx="4"/><rect x="264" y="18" width="118" height="48" rx="4"/><rect x="18" y="184" width="118" height="48" rx="4"/><rect x="264" y="184" width="118" height="48" rx="4"/></g>
-                    <path d="M0 125H400M200 0V250" stroke="#575058" stroke-width="80"/>
-                    <path d="M0 125H155M245 125H400M200 0V80M200 170V250" stroke="#e9e1e6" stroke-width="2" stroke-dasharray="12 10"/>
-                    <g fill="#edabc5"><rect x="70" y="139" width="25" height="12" rx="3"/><rect x="112" y="139" width="25" height="12" rx="3"/><rect x="213" y="36" width="12" height="25" rx="3"/></g>
-                    <g fill="#f8f5f7"><rect x="293" y="99" width="25" height="12" rx="3"/><rect x="175" y="193" width="12" height="25" rx="3"/></g>
-                    <g fill="#a34f72"><circle cx="148" cy="74" r="5"/><circle cx="252" cy="176" r="5"/></g>
-                  </svg>}
-              </div>
+              <ProjectVisual project={project} />
               <div class="project-card-body">
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
                 <ul class="project-tags" aria-label={`${project.name} categories`}>{project.tags.map(tag => <li>{tag}</li>)}</ul>
-                <div class="project-card-links">
-                  {project.demo && <a href={project.demo} aria-label={`Visit ${project.name}`}>Visit project <span aria-hidden="true">↗</span></a>}
-                  {project.repository && <a href={project.repository} aria-label={`${project.name} on GitHub`}>GitHub <span aria-hidden="true">↗</span></a>}
-                  {!project.demo && !project.repository && <span class="project-unavailable">Preview link coming soon</span>}
+                <div class="project-card-actions">
+                  <a class="button project-view-button" href={`${import.meta.env.BASE_URL}projects/${project.slug}/`} aria-label={`View Project: ${project.name}`}>View Project</a>
                 </div>
               </div>
             </article>
