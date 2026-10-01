@@ -77,7 +77,7 @@ import ProjectVisual from '../components/ProjectVisual.astro';
               <div class="project-card-body">
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
-                <ul class="project-tags" aria-label={`${project.name} categories`}>{project.tags.map(tag => <li>{tag}</li>)}</ul>
+                <ul class="project-tags" aria-label={`${project.name} categories`}>{project.tags.map(tag => <li class="project-tag">{tag}</li>)}</ul>
                 <div class="project-card-actions">
                   <a class="button project-view-button" href={`${import.meta.env.BASE_URL}projects/${project.slug}/`} aria-label={`View Project: ${project.name}`}>View Project</a>
                 </div>

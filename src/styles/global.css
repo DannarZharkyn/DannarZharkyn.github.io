@@ -76,7 +76,34 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .project-card h3 { font-size: 1.02rem; font-weight: 500; letter-spacing: -.025em; margin-bottom: .4rem; }
 .project-card p { font-size: .78rem; line-height: 1.55; color: #655e64; }
 .project-tags { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: .85rem 0 1.2rem; gap: .3rem; }
-.project-tags li { font-size: .57rem; color: #55474f; background: #eee6ea; padding: .15rem .35rem; border-radius: 2px; }
+/* Reusable technical badge; adjust text contrast for dark surfaces. */
+.project-tag {
+  --tag-text: #b51565;
+  display: inline-flex;
+  align-items: center;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: .62rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--tag-text);
+  background: transparent;
+  border: 1px solid #ec4899;
+  border-radius: 5px;
+  padding: .18rem .42rem;
+  box-shadow: 0 0 5px #ec48990a;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+.dark-panel .project-tag { --tag-text: #ff80bb; }
+@media (hover: hover) {
+  .project-tag:hover {
+    border-color: #f5268e;
+    background: #ec489909;
+    box-shadow: 0 0 7px #ec48991c;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-tag { transition: none; }
+}
 .project-card-actions { margin-top: auto; padding-top: .4rem; }
 .project-view-button { width: 100%; font-size: .78rem; padding-block: .7rem; }
 @media (max-width: 1000px) { .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

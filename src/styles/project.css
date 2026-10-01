@@ -5,7 +5,6 @@
 h1.case-title { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.06; font-weight: 300; margin-bottom: 1.2rem; overflow-wrap: anywhere; }
 .case-description { font-size: 1.08rem; line-height: 1.6; color: #e2d8de; }
 .case-tags { margin-block: 1.4rem 1.8rem; }
-.case-tags li { background: #332c31; color: #eed4df; font-size: .65rem; padding: .25rem .5rem; }
 .case-external { display: flex; flex-wrap: wrap; gap: .75rem; }
 .case-external .button { font-size: .75rem; }
 .case-visual { border-radius: 6px; aspect-ratio: 1.6; }
