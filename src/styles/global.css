@@ -7,8 +7,9 @@
   --pink: #f3b8cc;
   --pink-deep: #8c3656;
   --muted: #686169;
-  --paper: #f5f2f1;
-  --line: #e0d9dc;
+  --paper: #f3c4d5;
+  --surface-raised: #f7d5e1;
+  --line: #d69bb1;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
@@ -50,6 +51,8 @@ h1 span { color: var(--pink); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.65rem; }
 .button { display: inline-flex; justify-content: center; align-items: center; gap: 1.7rem; font-size: .79rem; padding: .7rem 1.15rem; border: 1px solid transparent; border-radius: 5px; color: #21181d; background: linear-gradient(115deg, #f6c6d6, #efabc2); font-weight: 500; }
 .button:hover { background: #ffd6e4; text-decoration: none; }
+.light-panel .button, .contact-section .button { background: #fff; color: #161316; border-color: #ffffffb3; }
+.light-panel .button:hover, .contact-section .button:hover { background: #fff5f9; border-color: #a5446b; }
 .button-outline { background: transparent; border-color: #ad8392; color: #f7f4f5; }
 .button-outline:hover { background: #ffffff0d; }
 .hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.7rem; font-size: .68rem; color: #d2c5cc; }
@@ -67,7 +70,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .section-top .eyebrow { margin-bottom: .55rem; }
 .section-note { font-size: .7rem; color: var(--muted); }
 .project-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
-.project-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid #e7dfe2; border-radius: 6px; overflow: hidden; background: #faf8f8; }
+.project-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--surface-raised); }
 .project-preview { aspect-ratio: 1.65; background: #eae2e6; overflow: hidden; }
 .project-preview img, .project-preview svg { display: block; width: 100%; height: 100%; object-fit: cover; }
 .project-preview.terrier { background: #e9ddd0; }
@@ -78,7 +81,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .project-tags { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: .85rem 0 1.2rem; gap: .3rem; }
 /* Reusable technical badge; adjust text contrast for dark surfaces. */
 .project-tag {
-  --tag-text: #b51565;
+  --tag-text: #9b0f53;
   display: inline-flex;
   align-items: center;
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
