@@ -123,10 +123,17 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .about-bottom { display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-top: 2rem; }
 .resume-note { display: flex; flex-direction: column; gap: .2rem; font-size: .78rem; padding-left: .8rem; border-left: 2px solid var(--pink); }
 .resume-note span { font-size: .63rem; color: #bfaeb7; }
-.toolkit-symbols { display: flex; gap: 3rem; font-family: monospace; font-size: 1.8rem; margin-block: 1rem 1.5rem; color: #5e4552; }
-.skills-section h3 { font-size: 1.05rem; margin-bottom: .8rem; }
-.skills-section .muted { max-width: 400px; }
-.skills-note { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+/* Compact editorial skill groups, sized to the available panel width. */
+.skills-section { container-type: inline-size; }
+.skills-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem; }
+.skill-icon { display: block; width: 28px; height: 28px; margin-bottom: 1.2rem; color: #292529; }
+.skill-group h3 { min-height: 3em; font-size: .78rem; font-weight: 600; line-height: 1.5; margin-bottom: 1.2rem; }
+.skill-group ul { list-style: none; padding: 0; margin: 0; }
+.skill-group li { font-size: .78rem; line-height: 1.85; color: #514b51; overflow-wrap: anywhere; }
+.skill-group .skill-pending { font-size: .75rem; color: var(--muted); }
+@container (max-width: 520px) {
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+}
 .timeline { padding-left: 1.8rem; border-left: 1px solid #a67f91; margin-left: .3rem; margin-top: 2rem; }
 .timeline-item { position: relative; padding-block: 0 1.5rem; }
 .timeline-item::before { content: ''; position: absolute; left: -2.12rem; top: .4rem; width: 9px; height: 9px; border-radius: 50%; background: var(--pink); }

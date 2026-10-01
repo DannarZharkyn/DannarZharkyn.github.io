@@ -1,0 +1,20 @@
+---
+import { skillGroups } from '../data/skills';
+---
+<section class="skills-section light-panel detail-panel" id="skills" aria-labelledby="skills-title">
+  <h2 id="skills-title">Skills</h2>
+  <div class="skills-grid">
+    {skillGroups.map(group => (
+      <div class="skill-group">
+        <svg class="skill-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          {group.icon === 'code' && <><path d="m9 9-7 7 7 7m14-14 7 7-7 7M19 5l-6 22" /></>}
+          {group.icon === 'monitor' && <><rect x="3" y="5" width="26" height="19" rx="1.5" /><path d="M12 29h8m-4-5v5" /></>}
+          {group.icon === 'cube' && <><path d="m16 2 12 7v14l-12 7-12-7V9Zm0 14L4 9m12 7 12-7M16 16v14M4 9l12-7 12 7" /></>}
+          {group.icon === 'tools' && <><path d="M6 3v26M16 3v26M26 3v26" /><rect x="3" y="8" width="6" height="6" rx="1" fill="var(--paper)" /><rect x="13" y="19" width="6" height="6" rx="1" fill="var(--paper)" /><rect x="23" y="6" width="6" height="6" rx="1" fill="var(--paper)" /></>}
+        </svg>
+        <h3>{group.title}</h3>
+        {group.items.length > 0 ? <ul>{group.items.map(item => <li>{item}</li>)}</ul> : <p class="skill-pending">Details coming soon</p>}
+      </div>
+    ))}
+  </div>
+</section>

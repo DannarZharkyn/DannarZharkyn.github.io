@@ -7,6 +7,7 @@ import { education } from '../data/education';
 import { projects } from '../data/projects';
 import SiteHeader from '../components/SiteHeader.astro';
 import ProjectVisual from '../components/ProjectVisual.astro';
+import Skills from '../components/Skills.astro';
 ---
 <BaseLayout title="Dannar Zharkyn | Engineering Portfolio" description="Engineering portfolio of Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -89,11 +90,7 @@ import ProjectVisual from '../components/ProjectVisual.astro';
     </section>
 
     <div class="details-grid">
-      <section class="skills-section light-panel detail-panel" id="skills" aria-labelledby="skills-title">
-        <h2 id="skills-title">Skills</h2>
-        <div class="toolkit-symbols" aria-hidden="true"><span>&lt;/&gt;</span><span>⌘</span><span>◇</span></div>
-        <h3>Skills with a story behind them.</h3><p class="muted">Technical tools and capabilities will be added alongside the projects that demonstrate them.</p><p class="section-note skills-note">Details coming soon</p>
-      </section>
+      <Skills />
       <section class="experience-section dark-panel detail-panel" id="experience" aria-labelledby="experience-title">
         <h2 id="experience-title">Experience</h2>
         <div class="timeline"><div class="timeline-item"><h3>Experience details coming soon.</h3><p>Roles, responsibilities, and contributions will be documented here.</p></div></div>
