@@ -13,8 +13,8 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
 <BaseLayout title={`${project.name} | Dannar Zharkyn`} description={project.description}>
   <a class="skip-link" href="#case-content">Skip to case study</a>
   <SiteHeader />
-  <main class="case-study" id="case-content">
-    <header class="case-hero dark-panel">
+  <main class:list={["case-study", { "company-profile": !!project.company }]} id="case-content">
+    <header class:list={["case-hero", project.company ? "light-panel" : "dark-panel"]}>
       <div class="container">
         <a class="case-back" href={back}>← Back to Projects</a>
         <div class="case-hero-grid">
@@ -31,9 +31,9 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
         </div>
       </div>
     </header>
-    <div class="case-body light-panel">
+    <div class:list={["case-body", project.company ? "dark-panel" : "light-panel"]}>
       <div class="container">
-        {project.company ? <>
+        {project.company ? <div class="company-columns">
           <section class="case-section" aria-labelledby="company-about-title">
             <h2 id="company-about-title">About {project.name}</h2>
             <p>{project.company.about}</p>
@@ -46,7 +46,7 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
             <h2 id="company-journey-title">Company Journey</h2>
             {project.company.journey?.length ? <ProjectBlocks blocks={project.company.journey} /> : <p class="case-pending">The company’s story and milestones will be added soon.</p>}
           </section>
-        </> : <>
+        </div> : <>
         <nav class="case-nav" aria-label="Case study sections">{sections.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}</nav>
         <section class="case-section" id="overview" aria-labelledby="overview-title">
           <h2 id="overview-title">Overview</h2>
