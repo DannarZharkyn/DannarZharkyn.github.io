@@ -37,14 +37,16 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
           <section class="case-section" aria-labelledby="company-about-title">
             <h2 id="company-about-title">About {project.name}</h2>
             <p>{project.company.about}</p>
+            {project.demo && <a class="company-learn-more" href={project.demo}>{project.company.learnMoreLabel ?? `Learn more about ${project.name}`} →</a>}
           </section>
           <section class="case-section" aria-labelledby="company-role-title">
             <h2 id="company-role-title">My Role</h2>
-            <p class:list={{ 'case-pending': !project.company.role }}>{project.company.role ?? 'Details about my role and contributions will be added soon.'}</p>
+            <h3 class="company-role-title">{project.company.roleTitle}</h3>
+            <p>{project.company.role}</p>
           </section>
-          <section class="case-section" aria-labelledby="company-journey-title">
-            <h2 id="company-journey-title">Company Journey</h2>
-            {project.company.journey?.length ? <ProjectBlocks blocks={project.company.journey} /> : <p class="case-pending">The company’s story and milestones will be added soon.</p>}
+          <section class="case-section" aria-labelledby="company-work-title">
+            <h2 id="company-work-title">What I Worked On</h2>
+            <ul class="company-contributions">{project.company.contributions.map(item => <li>{item}</li>)}</ul>
           </section>
         </div> : <>
         <nav class="case-nav" aria-label="Case study sections">{sections.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}</nav>

@@ -22,7 +22,7 @@ export interface Project {
   visual: string;
   demo?: string;
   demoLabel?: string;
-  company?: { about: string; role?: string; journey?: ProjectBlock[] };
+  company?: { about: string; learnMoreLabel?: string; roleTitle: string; role: string; contributions: string[] };
   repository?: string;
   overview?: { purpose?: string; problem?: string; role?: string };
   technical?: ProjectBlock[];
@@ -41,7 +41,13 @@ export const projects: Project[] = [
     visual: 'somni',
     demo: 'https://somni-systems.vercel.app',
     demoLabel: 'Company website',
-    company: { about: 'Somni Systems focuses on personalized neck support solutions for better sleep.' },
+    company: {
+      about: 'Somni Systems is developing adjustable sleep technology focused on personalized neck support and comfort.',
+      learnMoreLabel: 'Learn more about Somni',
+      roleTitle: 'Co-Founder · Product & Systems Development',
+      role: 'My work spans user research, product development, prototyping, system design, and coordination of technical development from early concept toward a functional proof of concept.',
+      contributions: ['User Research', 'Product Requirements', 'Prototype Development', 'System Design', 'Hardware Exploration', 'Technical Coordination'],
+    },
   },
   {
     slug: 'terrier-pursuit',
