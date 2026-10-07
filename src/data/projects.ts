@@ -21,6 +21,8 @@ export interface Project {
   imageAlt: string;
   visual: string;
   demo?: string;
+  demoLabel?: string;
+  company?: { about: string; role?: string; journey?: ProjectBlock[] };
   repository?: string;
   overview?: { purpose?: string; problem?: string; role?: string };
   technical?: ProjectBlock[];
@@ -38,7 +40,8 @@ export const projects: Project[] = [
     imageAlt: 'Somni pillow product visualization',
     visual: 'somni',
     demo: 'https://somni-systems.vercel.app',
-    repository: 'https://github.com/DannarZharkyn/SomniSystems',
+    demoLabel: 'Company website',
+    company: { about: 'Somni Systems focuses on personalized neck support solutions for better sleep.' },
   },
   {
     slug: 'terrier-pursuit',

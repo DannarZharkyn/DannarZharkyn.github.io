@@ -23,7 +23,7 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
             <p class="case-description">{project.description}</p>
             <ul class="project-tags case-tags" aria-label="Project categories">{project.tags.map(tag => <li class="project-tag">{tag}</li>)}</ul>
             {(project.demo || project.repository) && <div class="case-external" aria-label="External project resources">
-              {project.demo && <a class="button button-outline" href={project.demo}>Live Project</a>}
+              {project.demo && <a class="button button-outline" href={project.demo}>{project.demoLabel ?? 'Live Project'}</a>}
               {project.repository && <a class="button button-outline" href={project.repository}>GitHub / Source Code</a>}
             </div>}
           </div>
@@ -33,6 +33,20 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
     </header>
     <div class="case-body light-panel">
       <div class="container">
+        {project.company ? <>
+          <section class="case-section" aria-labelledby="company-about-title">
+            <h2 id="company-about-title">About {project.name}</h2>
+            <p>{project.company.about}</p>
+          </section>
+          <section class="case-section" aria-labelledby="company-role-title">
+            <h2 id="company-role-title">My Role</h2>
+            <p class:list={{ 'case-pending': !project.company.role }}>{project.company.role ?? 'Details about my role and contributions will be added soon.'}</p>
+          </section>
+          <section class="case-section" aria-labelledby="company-journey-title">
+            <h2 id="company-journey-title">Company Journey</h2>
+            {project.company.journey?.length ? <ProjectBlocks blocks={project.company.journey} /> : <p class="case-pending">The company’s story and milestones will be added soon.</p>}
+          </section>
+        </> : <>
         <nav class="case-nav" aria-label="Case study sections">{sections.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}</nav>
         <section class="case-section" id="overview" aria-labelledby="overview-title">
           <h2 id="overview-title">Overview</h2>
@@ -55,6 +69,7 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
           <h2 id="results-title">Results / Impact</h2>
           <ProjectBlocks blocks={project.results} placeholder="Verified outcomes, testing evidence, and lessons learned will be added here. No results are reported yet." />
         </section>
+        </>}
         <div class="case-end"><a class="case-back" href={back}>← Back to Projects</a></div>
       </div>
     </div>
