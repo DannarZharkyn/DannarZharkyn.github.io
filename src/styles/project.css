@@ -42,12 +42,14 @@ h1.case-title { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.06; font-w
   .case-placeholder { padding: 1.2rem; }
 }
 
-/* Compact company profile: pink product stage above three dark columns. */
-.company-profile .case-hero { padding-block: 1.5rem 3rem; }
+/* Compact company profile: white product stage above three dark columns. */
+.company-profile .case-hero { padding-block: 1.5rem 3rem; background: #fff; }
+.company-profile .case-hero .button { background: var(--pink); color: #161316; border-color: transparent; }
+.company-profile .case-hero .button:hover { background: #ffd6e4; border-color: #a5446b; }
 .company-profile .case-hero-grid { margin-top: 2rem; gap: 3rem; }
 .company-profile .case-description { color: #49333e; }
 .company-profile .case-visual { background: transparent; border-radius: 12px; }
-.company-profile .case-visual img { mix-blend-mode: multiply; }
+.company-profile .case-visual img { mix-blend-mode: normal; }
 .company-profile .case-body { border-radius: 0; }
 .company-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding-block: 3rem 1rem; }
 .company-columns .case-section { padding: 0 1.5rem 0 0; border-bottom: 0; border-right: 1px solid #513b46; min-width: 0; }
