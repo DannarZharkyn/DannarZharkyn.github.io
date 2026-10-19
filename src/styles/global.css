@@ -73,7 +73,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .project-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; }
 .project-preview { aspect-ratio: 1.65; background: #eae2e6; overflow: hidden; }
 .project-preview img, .project-preview svg { display: block; width: 100%; height: 100%; object-fit: cover; }
-.project-preview.terrier { background: #e9ddd0; }
+.project-preview.terrier { background: #fff; }
 .project-preview.terrier img { object-fit: contain; padding: .5rem; }
 .project-card-body { display: flex; flex-direction: column; flex: 1; padding: 1rem; }
 .project-card h3 { font-size: 1.02rem; font-weight: 500; letter-spacing: -.025em; margin-bottom: .4rem; }

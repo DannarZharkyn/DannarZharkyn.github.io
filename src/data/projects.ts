@@ -22,7 +22,8 @@ export interface Project {
   visual: string;
   demo?: string;
   demoLabel?: string;
-  company?: { about: string; learnMoreLabel?: string; roleTitle: string; role: string; contributions: string[] };
+  dates?: string;
+  company?: { about: string; impact?: string; learnMoreLabel?: string; roleTitle: string; role: string; contributions: string[] };
   repository?: string;
   overview?: { purpose?: string; problem?: string; role?: string };
   technical?: ProjectBlock[];
@@ -52,12 +53,22 @@ export const projects: Project[] = [
   {
     slug: 'terrier-pursuit',
     name: 'Terrier Pursuit',
-    description: 'Campus scavenger hunt prototype for organizers and student teams.',
-    tags: ['Web development', 'UX', 'Prototype'],
+    description: 'A campus-wide scavenger hunt platform for Boston University Student Wellbeing.',
+    dates: 'Jun 2026 – Aug 2026',
+    tags: ['Web development', 'UX', 'Prototype', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vercel'],
     image: terrier,
     imageAlt: 'Map and compass artwork from Terrier Pursuit',
     visual: 'terrier',
-    demo: 'https://terrier-pursuit-prototype.vercel.app/organizer/dashboard',
+    demo: 'https://terrier-pursuit.vercel.app/participant/welcome',
+    demoLabel: 'Live demo',
+    company: {
+      about: 'An interactive campus-wide scavenger hunt platform for Boston University Student Wellbeing, with participant and organizer experiences. It supports event registration, QR-based participation, location challenges, event-specific configurations, and organizer tools.',
+      impact: 'Deployed across multiple BU events, including large-scale student programs with 400+ participants.',
+      learnMoreLabel: 'Explore the live demo',
+      roleTitle: 'Software Engineer · Product Development',
+      role: 'As one of the engineers developing the web app, I worked from early prototyping and stakeholder approval through implementation. I collaborated directly with Student Wellbeing stakeholders to improve the product based on event needs and participant feedback.',
+      contributions: ['Prototyping & Stakeholder Approval', 'Participant & Organizer Experiences', 'Event Registration & QR Participation', 'Location Challenges', 'Event Configuration & Organizer Tools', 'Stakeholder Feedback & Iteration'],
+    },
     repository: 'https://github.com/DannarZharkyn/terrier-pursuit-prototype',
   },
   {

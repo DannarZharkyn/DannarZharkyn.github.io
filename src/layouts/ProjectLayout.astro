@@ -21,6 +21,7 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
           <div>
             <h1 class="case-title">{project.name}</h1>
             <p class="case-description">{project.description}</p>
+            {project.dates && <p class="case-dates">{project.dates}</p>}
             <ul class="project-tags case-tags" aria-label="Project categories">{project.tags.map(tag => <li class="project-tag">{tag}</li>)}</ul>
             {(project.demo || project.repository) && <div class="case-external" aria-label="External project resources">
               {project.demo && <a class="button button-outline" href={project.demo}>{project.demoLabel ?? 'Live Project'}</a>}
@@ -37,6 +38,7 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
           <section class="case-section" aria-labelledby="company-about-title">
             <h2 id="company-about-title">About {project.name}</h2>
             <p>{project.company.about}</p>
+            {project.company.impact && <p>{project.company.impact}</p>}
             {project.demo && <a class="company-learn-more" href={project.demo}>{project.company.learnMoreLabel ?? `Learn more about ${project.name}`} →</a>}
           </section>
           <section class="case-section" aria-labelledby="company-role-title">
