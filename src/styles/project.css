@@ -73,3 +73,32 @@ h1.case-title { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.06; font-w
 .case-dates { margin-top: .7rem; font-size: .8rem; color: #65545e; }
 
 .case-status { display: inline-block; margin-top: .8rem; padding: .2rem .6rem; border: 1px solid #a5446b; border-radius: 4px; color: #8c3656; font-size: .75rem; font-weight: 600; }
+
+/* Evidence-led projects can extend the compact profile with original materials. */
+.case-institution { font-size: .8rem; color: #65545e; margin-top: .7rem; }
+.case-visual.delivery-robot { aspect-ratio: auto; background: #fff; }
+.case-visual.delivery-robot img { width: 100%; height: auto; }
+.research-architecture { background: #fff; }
+.research-architecture, .research-gallery, .research-validation { padding-block: 3rem; }
+.research-intro { max-width: 760px; font-size: .9rem; color: #554951; margin-top: 1rem; }
+.architecture-steps { list-style: none; counter-reset: architecture; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 2rem; }
+.architecture-steps li { counter-increment: architecture; border-top: 1px solid #d69bb1; padding-top: 1rem; }
+.architecture-steps li::before { content: '0' counter(architecture); display: block; color: #8c3656; font-family: monospace; font-size: .8rem; margin-bottom: .5rem; }
+.architecture-steps h3, .validation-grid h3 { font-size: 1rem; font-weight: 600; margin-bottom: .65rem; }
+.architecture-steps p, .validation-grid p { font-size: .88rem; line-height: 1.7; }
+.architecture-steps p { color: #554951; }
+.research-figures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; align-items: start; }
+.research-figures .portrait-figure { grid-column: span 1; }
+.research-image { background: #fff; border-radius: 6px; overflow: hidden; padding: .75rem; }
+.research-image img { display: block; width: 100%; height: 260px; object-fit: contain; }
+.portrait-figure .research-image img { height: 360px; }
+.research-figures figcaption { display: block; color: #49333e; font-size: .76rem; line-height: 1.5; }
+.validation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.validation-grid h3 { color: var(--pink); }
+.validation-grid p { color: #ded3d9; }
+@media (max-width: 1000px) { .architecture-steps, .research-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) {
+  .architecture-steps, .research-figures, .validation-grid { grid-template-columns: 1fr; }
+  .research-architecture, .research-gallery, .research-validation { padding-block: 2rem; }
+  .portrait-figure .research-image img { height: auto; max-height: 480px; }
+}

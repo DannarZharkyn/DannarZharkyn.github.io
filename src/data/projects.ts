@@ -2,6 +2,12 @@ import type { ImageMetadata } from 'astro';
 import somni from '../assets/projects/somni.png';
 import terrier from '../assets/projects/terrier.png';
 import wellbeing from '../assets/projects/wellbeing.png';
+import robotWeb from '../assets/projects/delivery-robot/web-interface.jpeg';
+import robotCompass from '../assets/projects/delivery-robot/android-compass.jpeg';
+import robotWorkflow from '../assets/projects/delivery-robot/delivery-workflow.jpeg';
+import robotArduino from '../assets/projects/delivery-robot/arduino-mega.jpeg';
+import robotWifi from '../assets/projects/delivery-robot/esp8266.jpeg';
+import robotSensor from '../assets/projects/delivery-robot/ultrasonic.jpeg';
 
 // Content blocks can contain paragraphs, bullet points, and captioned images.
 export interface ProjectBlock {
@@ -17,6 +23,7 @@ export interface Project {
   name: string;
   description: string;
   tags: string[];
+  cardTags?: string[];
   image: ImageMetadata | null;
   imageAlt: string;
   visual: string;
@@ -25,6 +32,13 @@ export interface Project {
   demoLabel?: string;
   dates?: string;
   status?: string;
+  institution?: string;
+  evidence?: {
+    architecture: { title: string; text: string }[];
+    figures: { image: ImageMetadata; alt: string; caption: string; portrait?: boolean }[];
+    demonstrated: string;
+    reported: string;
+  };
   company?: { about: string; impact?: string; learnMoreLabel?: string; roleTitle: string; role: string; contributions: string[] };
   repository?: string;
   overview?: { purpose?: string; problem?: string; role?: string };
@@ -34,6 +48,44 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'autonomous-delivery-robot',
+    name: 'Autonomous Delivery Robot',
+    description: 'Design and Development of a Robotic Assistant Control System',
+    dates: 'September 2022 – May 2023',
+    status: 'Bachelor’s Thesis Project',
+    institution: 'L.N. Gumilyov Eurasian National University',
+    tags: ['Arduino Mega 2560', 'NodeMCU ESP8266', 'C++', 'Arduino IDE', 'React', 'JavaScript', 'Firebase', 'Google Maps API', 'Android Studio', 'Java', 'GPS', 'Ultrasonic Sensors'],
+    image: robotWeb,
+    imageAlt: 'Original thesis screenshot of the React delivery control interface with Google Maps and destination fields',
+    visual: 'delivery-robot',
+    cardTags: ['Embedded Systems', 'Robotics', 'Web & Mobile'],
+    company: {
+      about: 'For my bachelor’s thesis, I developed a robotic assistant control system to explore short-distance delivery of small items. The project brings together a web control interface, Android navigation functionality, embedded hardware, wireless communication, and obstacle sensing.',
+      roleTitle: 'Bachelor’s Thesis — Software & Embedded Systems Development',
+      role: 'I designed the control system, built the React administrator interface, integrated Firebase and Google Maps, programmed microcontrollers in C++, and developed Android navigation functionality. I also integrated sensors and wireless communication and tested the control software.',
+      contributions: ['Control System Design', 'React Administrator Interface', 'Firebase & Google Maps Integration', 'C++ Microcontroller Programming', 'Android Compass & Location Data', 'Sensor Integration & Software Testing'],
+    },
+    evidence: {
+      architecture: [
+        { title: 'Select a destination', text: 'The React administrator interface uses Google Maps to select delivery coordinates and set a compartment access code.' },
+        { title: 'Exchange data through Firebase', text: 'The web app writes delivery data to Firebase Realtime Database. The Android app supplies compass heading and location data.' },
+        { title: 'Bridge Wi-Fi to the controller', text: 'NodeMCU ESP8266 retrieves cloud data over Wi-Fi and forwards it to the Arduino Mega through UART.' },
+        { title: 'Compute heading and drive', text: 'The Arduino control logic uses destination coordinates, GPS position, and compass heading to determine movement direction.' },
+        { title: 'Respond to obstacles', text: 'Ultrasonic sensors inform stop, reverse, and turn decisions. The thesis documents this avoidance logic in C++.' },
+        { title: 'Complete the delivery cycle', text: 'The specified workflow includes arrival notification, code-controlled collection, and return to the starting position. These are described in the thesis; detailed end-to-end performance measurements are not provided.' },
+      ],
+      figures: [
+        { image: robotCompass, alt: 'Android compass application displaying a heading of 233 degrees', caption: 'Android compass interface — thesis Figure 36. Heading updates were sent to Firebase.', portrait: true },
+        { image: robotWorkflow, alt: 'Original Kazakh-language delivery workflow covering order validation, destination transfer, navigation, obstacle checks, delivery, and return', caption: 'Original delivery workflow — thesis Figure 2, in Kazakh. This describes the intended delivery cycle.', portrait: true },
+        { image: robotArduino, alt: 'Arduino Mega board photographed in the thesis', caption: 'Arduino Mega controller — thesis Figure 18.' },
+        { image: robotWifi, alt: 'NodeMCU ESP8266 board photographed in the thesis', caption: 'NodeMCU ESP8266 Wi-Fi module — thesis Figure 22.' },
+        { image: robotSensor, alt: 'HC-SR04 ultrasonic sensor photographed in the thesis', caption: 'HC-SR04 ultrasonic sensor — thesis Figure 21.' },
+      ],
+      demonstrated: 'The testing chapter shows delivery coordinates and an access code successfully written from the web interface to Firebase, and Android compass-heading updates appearing in the database. The thesis includes control code for navigation calculations, obstacle avoidance, and compartment access.',
+      reported: 'The conclusion reports a successful test delivery and describes arrival notification and return-to-start functionality. It does not provide measured navigation accuracy, delivery reliability, or a repeatable end-to-end test dataset. These are thesis-reported capabilities, not quantified performance results.',
+    },
+  },
   {
     slug: 'somni-systems',
     name: 'Somni Systems',
