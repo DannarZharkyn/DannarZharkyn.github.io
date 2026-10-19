@@ -20,6 +20,7 @@ export interface Project {
   image: ImageMetadata | null;
   imageAlt: string;
   visual: string;
+  recognition?: string;
   demo?: string;
   demoLabel?: string;
   dates?: string;
@@ -89,6 +90,40 @@ export const projects: Project[] = [
     visual: 'wellbeing',
     demo: '',
     repository: '', // Private repository; do not link visitors to an inaccessible page.
+  },
+  {
+    slug: 'terrier-fit',
+    name: 'Terrier Fit',
+    description: 'A fitness platform concept encouraging physical activity and student engagement at BU.',
+    dates: 'Mar 2026 – May 2026',
+    status: 'Concept · 2nd place',
+    tags: ['Product Design', 'Systems Modeling', 'User-centered Design', 'Frontend Prototyping'],
+    image: null, imageAlt: '', visual: 'fitness',
+    recognition: 'https://www.bu.edu/studentwellbeing/2026/04/14/meet-the-winners-of-bus-2026-hospitality-innovation-and-student-wellbeing-competition/',
+    company: {
+      about: 'A fitness platform concept designed to encourage physical activity and student engagement at Boston University, with fitness challenges, activity tracking, points, and competitive elements.',
+      impact: 'Earned 2nd place in the Boston University Student Wellbeing competition.',
+      roleTitle: 'Product Design · Frontend Prototyping',
+      role: 'I developed the concept through systems modeling, user-centered design, feature planning, and frontend interface prototyping. I created an interactive interface demonstrating the proposed features.',
+      contributions: ['Systems Modeling', 'User-centered Design', 'Feature Planning', 'Interactive Interface Prototyping', 'Fitness Challenges & Activity Tracking', 'Points & Competitive Elements'],
+    },
+  },
+  {
+    slug: 'common-ground',
+    name: 'Common Ground',
+    description: 'A student wellbeing concept for healthier communication and constructive conflict resolution.',
+    dates: 'Mar 2026 – May 2026',
+    status: 'Concept · 3rd place',
+    tags: ['Systems Modeling', 'Product Design', 'User-centered Research', 'Frontend Prototyping'],
+    image: null, imageAlt: '', visual: 'communication',
+    recognition: 'https://www.bu.edu/studentwellbeing/2026/04/14/meet-the-winners-of-bus-2026-hospitality-innovation-and-student-wellbeing-competition/',
+    company: {
+      about: 'A student wellbeing platform concept focused on preventing interpersonal conflicts and promoting healthier communication within the Boston University community.',
+      impact: 'Earned 3rd place in the Boston University Student Wellbeing competition.',
+      roleTitle: 'Product Design · Frontend Prototyping',
+      role: 'I developed the concept through systems modeling, user-centered research, feature planning, and frontend interface prototyping. The interactive interface demonstrated tools to navigate disagreements, understand different perspectives, and address conflicts constructively.',
+      contributions: ['Systems Modeling', 'User-centered Research', 'Feature Planning', 'Frontend Interface Prototyping', 'Communication & Conflict-resolution Tools'],
+    },
   },
   {
     slug: 'urban-mobility',

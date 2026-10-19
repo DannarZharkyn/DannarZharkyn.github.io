@@ -24,12 +24,13 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
             {project.dates && <p class="case-dates">{project.dates}</p>}
             {project.status && <p class="case-status">{project.status}</p>}
             <ul class="project-tags case-tags" aria-label="Project categories">{project.tags.map(tag => <li class="project-tag">{tag}</li>)}</ul>
-            {(project.demo || project.repository) && <div class="case-external" aria-label="External project resources">
+            {(project.demo || project.repository || project.recognition) && <div class="case-external" aria-label="External project resources">
               {project.demo && <a class="button button-outline" href={project.demo}>{project.demoLabel ?? 'Live Project'}</a>}
+              {project.recognition && <a class="button button-outline" href={project.recognition}>Award announcement</a>}
               {project.repository && <a class="button button-outline" href={project.repository}>GitHub / Source Code</a>}
             </div>}
           </div>
-          <div><ProjectVisual project={project} large />{!project.image && <p class="case-image-note">Illustrative system diagram</p>}</div>
+          <div><ProjectVisual project={project} large />{!project.image && <p class="case-image-note">Concept illustration</p>}</div>
         </div>
       </div>
     </header>
