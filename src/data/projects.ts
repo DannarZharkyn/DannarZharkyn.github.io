@@ -23,6 +23,7 @@ export interface Project {
   demo?: string;
   demoLabel?: string;
   dates?: string;
+  status?: string;
   company?: { about: string; impact?: string; learnMoreLabel?: string; roleTitle: string; role: string; contributions: string[] };
   repository?: string;
   overview?: { purpose?: string; problem?: string; role?: string };
@@ -74,8 +75,15 @@ export const projects: Project[] = [
   {
     slug: 'wellbeing-challenge',
     name: 'Wellbeing Challenge',
-    description: 'Frontend prototype for an employee wellbeing challenge application.',
-    tags: ['Frontend', 'Wellbeing', 'Prototype'],
+    description: 'A student wellbeing platform for individual and group challenges.',
+    status: 'In development',
+    tags: ['Frontend', 'Wellbeing', 'Prototype', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Vercel'],
+    company: {
+      about: 'A platform in development where students can take part in individual and group wellbeing challenges across BU’s seven dimensions of wellbeing: emotional, physical, environmental, social, intellectual, financial, and spiritual.',
+      roleTitle: 'Software Development',
+      role: 'I am developing the web platform to support student participation in individual and group wellbeing challenges, using Supabase and Vercel as part of the technology stack.',
+      contributions: ['Student Challenge Experience', 'Individual & Group Participation', 'Frontend Development', 'Supabase Integration', 'Vercel Deployment'],
+    },
     image: wellbeing,
     imageAlt: 'Wellbeing Challenge project banner',
     visual: 'wellbeing',
