@@ -1,8 +1,5 @@
 import fitPitch from '../assets/projects/pitches/terrier-fit.png';
 import groundPitch from '../assets/projects/pitches/common-ground.png';
-import roommatePreferences from '../assets/projects/pitches/roommate-preferences.png';
-import sharedCalendar from '../assets/projects/pitches/shared-calendar.png';
-import communityEvents from '../assets/projects/pitches/community-events.png';
 import type { ImageMetadata } from 'astro';
 import somni from '../assets/projects/somni.png';
 import terrier from '../assets/projects/terrier.png';
@@ -174,11 +171,6 @@ export const projects: Project[] = [
     status: 'Concept · 3rd place',
     tags: ['Systems Modeling', 'Product Design', 'User-centered Research', 'Frontend Prototyping'],
     image: groundPitch, imageAlt: 'Common Ground original pitch cover: roommate wellbeing support and conflict prevention platform', visual: 'pitch',
-    gallery: [
-      { image: roommatePreferences, alt: 'Common Ground prototype showing noise tolerance and study habit preferences', caption: 'Roommate preferences: align expectations around noise, study habits, and shared living.' },
-      { image: sharedCalendar, alt: 'Common Ground prototype showing a shared calendar, tasks, and weekly check-in', caption: 'Shared routines: a calendar, household tasks, and weekly emotional check-ins.' },
-      { image: communityEvents, alt: 'Common Ground prototype showing dorm social and movie night event cards', caption: 'Community connection: discover dorm events and express interest in attending.' },
-    ],
     recognition: 'https://www.bu.edu/studentwellbeing/2026/04/14/meet-the-winners-of-bus-2026-hospitality-innovation-and-student-wellbeing-competition/',
     company: {
       about: 'Common Ground is a proactive roommate wellbeing platform concept for BU. It combines roommate agreements, shared tasks and calendars, weekly check-ins, and campus events. Proposed AI-guided communication supports everyday friction, while sensitive or escalated issues remain with Residence Life and RAs.',

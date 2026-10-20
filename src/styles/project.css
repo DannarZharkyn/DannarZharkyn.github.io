@@ -114,6 +114,7 @@ h1.case-title { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.06; font-w
 .prototype-phone::after { content: ''; position: absolute; width: 65px; height: 3px; border-radius: 3px; background: #a5969e; bottom: 5px; left: calc(50% - 32.5px); }
 .pitch-gallery-grid .prototype-phone img { display: block; width: 100%; height: auto; object-fit: contain; background: white; border-radius: 17px; }
 .pitch-gallery > h2 { color: var(--pink); }
-.company-profile .case-visual.fit-phone { aspect-ratio: 1.15; }
+.company-profile .case-visual.fit-phone { aspect-ratio: 1.6; }
+.company-profile .case-visual.fit-phone .fit-phone-window { height: 85%; }
 .pitch-gallery-grid figcaption { font-size: .8rem; color: #c5bdc1; margin-top: .8rem; }
 @media (max-width: 650px) { .pitch-gallery-grid { grid-template-columns: 1fr; } }
