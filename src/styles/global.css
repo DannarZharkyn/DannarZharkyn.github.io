@@ -268,5 +268,5 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 .project-preview.delivery-robot { background: #fff; }
 .project-preview.delivery-robot img { object-fit: contain; padding: .75rem; }
 
-.resume-button-frame { display: inline-flex; padding-right: .85rem; border-right: 2px solid var(--pink); }
-.resume-button { background: var(--pink); color: #21191d; border-radius: 8px; padding: .65rem 1.35rem; font-size: .85rem; }
+.resume-button-frame { display: inline-flex; padding-left: .85rem; border-left: 2px solid var(--pink); }
+.resume-button { background: var(--pink); color: #21191d; border-radius: 8px; padding: .4rem 1.35rem; font-size: .85rem; }
