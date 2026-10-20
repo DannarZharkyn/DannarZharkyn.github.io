@@ -156,7 +156,7 @@ export const projects: Project[] = [
     dates: 'Mar 2026 – May 2026',
     status: 'Concept · 2nd place',
     tags: ['Product Design', 'Systems Modeling', 'User-centered Design', 'Frontend Prototyping'],
-    image: fitPitch, imageAlt: 'Terrier Fit app identity and social fitness concept from the original pitch presentation', visual: 'pitch',
+    image: fitPitch, imageAlt: 'Terrier Fit app identity and social fitness concept from the original pitch presentation', visual: 'fit-phone',
     recognition: 'https://www.bu.edu/studentwellbeing/2026/04/14/meet-the-winners-of-bus-2026-hospitality-innovation-and-student-wellbeing-competition/',
     company: {
       about: 'Terrier Fit is a social fitness platform concept for BU students who want to stay active with others. It proposes nearby activity discovery, workout partners at a similar level, and low-pressure opportunities to move together—addressing gym intimidation and the difficulty of staying motivated alone.',

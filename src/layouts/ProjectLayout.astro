@@ -83,7 +83,7 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
           <h2 id="pitch-gallery-title">Inside the Prototype</h2>
           <p>Original interface mockups from the pitch presentation; shown as concept designs.</p>
           <div class="pitch-gallery-grid">{project.gallery.map(figure => <figure>
-            <Image src={figure.image} alt={figure.alt} widths={[400, 800]} sizes="(max-width: 650px) 85vw, 300px" format="webp" loading="lazy" />
+            <div class="prototype-phone"><Image src={figure.image} alt={figure.alt} widths={[400, 800]} sizes="(max-width: 650px) 85vw, 300px" format="webp" loading="lazy" /></div>
             <figcaption>{figure.caption}</figcaption>
           </figure>)}</div>
         </section>}

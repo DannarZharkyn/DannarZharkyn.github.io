@@ -259,3 +259,8 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 /* A slightly tighter frame around the career roadmap. */
 .experience-section.detail-panel { padding-block: clamp(1.75rem, calc(4vw - .5rem), 3.5rem); }
 .experience-section .section-top { margin-bottom: 1.3rem; }
+
+/* Display only the original phone within the supplied pitch artwork. */
+.project-preview.fit-phone { display: flex; align-items: center; justify-content: center; background: #fff; }
+.fit-phone-window { height: 90%; aspect-ratio: 390 / 790; position: relative; overflow: hidden; flex: none; }
+.project-preview .fit-phone-window img { position: absolute; width: 393.846%; height: 129.62%; max-width: none; left: -146.154%; top: -5.063%; object-fit: fill; }
