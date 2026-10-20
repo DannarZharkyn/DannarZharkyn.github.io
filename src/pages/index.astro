@@ -4,6 +4,7 @@ import portrait from '../assets/dannar-portrait.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { profile } from '../data/profile';
 import { education } from '../data/education';
+import { experience } from '../data/experience';
 import { projects } from '../data/projects';
 import SiteHeader from '../components/SiteHeader.astro';
 import ProjectVisual from '../components/ProjectVisual.astro';
@@ -91,8 +92,24 @@ import Skills from '../components/Skills.astro';
 
     <section class="experience-section dark-panel detail-panel" id="experience" aria-labelledby="experience-title">
       <div class="container">
-        <h2 id="experience-title">Experience</h2>
-        <div class="timeline"><div class="timeline-item"><h3>Experience details coming soon.</h3><p>Roles, responsibilities, and contributions will be documented here.</p></div></div>
+        <div class="section-top"><h2 id="experience-title">Experience</h2></div>
+        <ol class="experience-grid" aria-label="Experience, most recent first">
+          {experience.map(entry => (
+            <li class="experience-stop">
+              <p class="experience-year">{entry.period}</p>
+              <article class="experience-card">
+                <h3>{entry.organization}</h3>
+                <p class="experience-location">{entry.location}</p>
+                <ul class="experience-roles">
+                  {entry.roles.map(role => (
+                    <li><h4>{role.title}</h4><p>{role.dates}</p></li>
+                  ))}
+                </ul>
+                {entry.summary && <p class="experience-summary">{entry.summary}</p>}
+              </article>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
 
