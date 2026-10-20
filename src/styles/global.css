@@ -255,3 +255,7 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
   .site-footer .container { flex-wrap: wrap; font-size: .57rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* A slightly tighter frame around the career roadmap. */
+.experience-section.detail-panel { padding-block: clamp(1.75rem, calc(4vw - .5rem), 3.5rem); }
+.experience-section .section-top { margin-bottom: 1.3rem; }

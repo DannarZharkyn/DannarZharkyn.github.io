@@ -21,7 +21,7 @@ export const experience = [
   {
     organization: 'Zerdeli Digital',
     location: 'Astana, Kazakhstan',
-    period: '2023 — 2025',
+    period: '2023',
     roles: [{ title: 'Math / English Teacher', dates: 'Aug 2023 – Apr 2025' }],
     summary: 'Mentored over 90 schoolchildren in mathematics, logic, and English, preparing them for admission to educational institutions.',
   },
