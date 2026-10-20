@@ -7,7 +7,7 @@ const { evidence } = Astro.props;
 <section class="research-architecture" aria-labelledby="architecture-title">
   <div class="container">
     <h2 id="architecture-title">System Architecture</h2>
-    <p class="research-intro">From a delivery request to embedded control: the communication flow documented in the thesis.</p>
+    <p class="research-intro">Web, mobile, and embedded control connected through Firebase.</p>
     <ol class="architecture-steps">
       {evidence.architecture.map(step => <li><h3>{step.title}</h3><p>{step.text}</p></li>)}
     </ol>
@@ -16,10 +16,10 @@ const { evidence } = Astro.props;
 <section class="research-gallery light-panel" aria-labelledby="gallery-title">
   <div class="container">
     <h2 id="gallery-title">Inside the Project</h2>
-    <p class="research-intro">Original figures extracted from the bachelor’s thesis. The hero shows the administrator interface (Figure 31); the hardware photos below show individual components.</p>
+    <p class="research-intro">Interfaces and components from the original thesis. The recovered navigation app uses the phone’s GPS; the separate GPS module is shown as thesis hardware.</p>
     <div class="research-figures">
       {evidence.figures.map(figure => <figure class:list={{ 'portrait-figure': figure.portrait }}>
-        <div class="research-image"><Image src={figure.image} alt={figure.alt} widths={[400, 800, 1200]} sizes="(max-width: 650px) 90vw, (max-width: 1000px) 45vw, 380px" format="webp" loading="lazy" /></div>
+        <div class="research-image"><Image src={figure.image} alt={figure.alt} widths={[400, 800, 1200]} sizes="(max-width: 650px) 40vw, 220px" format="webp" loading="lazy" /></div>
         <figcaption>{figure.caption}</figcaption>
       </figure>)}
     </div>
@@ -27,10 +27,10 @@ const { evidence } = Astro.props;
 </section>
 <section class="research-validation dark-panel" aria-labelledby="validation-title">
   <div class="container">
-    <h2 id="validation-title">Implementation & Validation</h2>
+    <h2 id="validation-title">Project Archive</h2>
     <div class="validation-grid">
-      <div><h3>Demonstrated in the thesis</h3><p>{evidence.demonstrated}</p></div>
-      <div><h3>Reported capabilities & limits</h3><p>{evidence.reported}</p></div>
+      <div><h3>Code & demonstration</h3><p>{evidence.demonstrated}</p></div>
+      <div><h3>Restoration status</h3><p>{evidence.reported}</p></div>
     </div>
   </div>
 </section>

@@ -19,3 +19,9 @@ The testing chapter demonstrates Firebase writes from the web and Android apps.
 The conclusion reports a successful test delivery; no quantitative performance
 or repeatability results are supplied. The portfolio distinguishes these levels
 of evidence.
+
+Update: prototype.png is the assembled robot photo supplied by Dannar.
+Additional figures extracted from the public delivery-robot repository thesis:
+motor-driver.jpeg (19), motor.jpeg (20), gps.jpeg (23), keypad.jpeg (24), servo.jpeg (26).
+The separate GPS module is thesis hardware; the recovered Android code uses phone GPS.
+Current data flow and restoration status are based on the repository README and docs/RESTORATION.md.

@@ -1,3 +1,8 @@
+import robotServo from '../assets/projects/delivery-robot/servo.jpeg';
+import robotKeypad from '../assets/projects/delivery-robot/keypad.jpeg';
+import robotGps from '../assets/projects/delivery-robot/gps.jpeg';
+import robotMotor from '../assets/projects/delivery-robot/motor.jpeg';
+import robotDriver from '../assets/projects/delivery-robot/motor-driver.jpeg';
 import fitPitch from '../assets/projects/pitches/terrier-fit.png';
 import groundPitch from '../assets/projects/pitches/common-ground.png';
 import type { ImageMetadata } from 'astro';
@@ -6,7 +11,7 @@ import terrier from '../assets/projects/terrier.png';
 import wellbeing from '../assets/projects/wellbeing.png';
 import robotWeb from '../assets/projects/delivery-robot/web-interface.jpeg';
 import robotCompass from '../assets/projects/delivery-robot/android-compass.jpeg';
-import robotWorkflow from '../assets/projects/delivery-robot/delivery-workflow.jpeg';
+import robotPrototype from '../assets/projects/delivery-robot/prototype.png';
 import robotArduino from '../assets/projects/delivery-robot/arduino-mega.jpeg';
 import robotWifi from '../assets/projects/delivery-robot/esp8266.jpeg';
 import robotSensor from '../assets/projects/delivery-robot/ultrasonic.jpeg';
@@ -59,8 +64,11 @@ export const projects: Project[] = [
     status: 'Bachelor’s Thesis Project',
     institution: 'L.N. Gumilyov Eurasian National University',
     tags: ['Arduino Mega 2560', 'NodeMCU ESP8266', 'C++', 'Arduino IDE', 'React', 'JavaScript', 'Firebase', 'Google Maps API', 'Android Studio', 'Java', 'GPS', 'Ultrasonic Sensors'],
-    image: robotWeb,
-    imageAlt: 'Original thesis screenshot of the React delivery control interface with Google Maps and destination fields',
+    image: robotPrototype,
+    demo: 'https://github.com/DannarZharkyn/delivery-robot/releases/tag/diploma-2023',
+    demoLabel: 'Video demonstration',
+    repository: 'https://github.com/DannarZharkyn/delivery-robot',
+    imageAlt: 'Delivery robot prototype with keypad, ultrasonic sensors, and wheeled chassis',
     visual: 'delivery-robot',
     cardTags: ['Embedded Systems', 'Robotics', 'Web & Mobile'],
     company: {
@@ -71,22 +79,25 @@ export const projects: Project[] = [
     },
     evidence: {
       architecture: [
-        { title: 'Select a destination', text: 'The React administrator interface uses Google Maps to select delivery coordinates and set a compartment access code.' },
-        { title: 'Exchange data through Firebase', text: 'The web app writes delivery data to Firebase Realtime Database. The Android app supplies compass heading and location data.' },
-        { title: 'Bridge Wi-Fi to the controller', text: 'NodeMCU ESP8266 retrieves cloud data over Wi-Fi and forwards it to the Arduino Mega through UART.' },
-        { title: 'Compute heading and drive', text: 'The Arduino control logic uses destination coordinates, GPS position, and compass heading to determine movement direction.' },
-        { title: 'Respond to obstacles', text: 'Ultrasonic sensors inform stop, reverse, and turn decisions. The thesis documents this avoidance logic in C++.' },
-        { title: 'Complete the delivery cycle', text: 'The specified workflow includes arrival notification, code-controlled collection, and return to the starting position. These are described in the thesis; detailed end-to-end performance measurements are not provided.' },
+        { title: 'Set the delivery', text: 'The React interface sends destination coordinates, recipient email, and an access code to Firebase. In the recovered version, map coordinates are copied into the form manually.' },
+        { title: 'Calculate direction', text: 'The Android app reads the destination, uses the phone’s GPS and compass, and publishes bearing, heading, and arrival status to Firebase.' },
+        { title: 'Control the robot', text: 'ESP8266 forwards navigation data over serial to the Arduino Mega, which handles motors, three ultrasonic sensors, the keypad, servo, and relay.' },
       ],
       figures: [
-        { image: robotCompass, alt: 'Android compass application displaying a heading of 233 degrees', caption: 'Android compass interface — thesis Figure 36. Heading updates were sent to Firebase.', portrait: true },
-        { image: robotWorkflow, alt: 'Original Kazakh-language delivery workflow covering order validation, destination transfer, navigation, obstacle checks, delivery, and return', caption: 'Original delivery workflow — thesis Figure 2, in Kazakh. This describes the intended delivery cycle.', portrait: true },
-        { image: robotArduino, alt: 'Arduino Mega board photographed in the thesis', caption: 'Arduino Mega controller — thesis Figure 18.' },
-        { image: robotWifi, alt: 'NodeMCU ESP8266 board photographed in the thesis', caption: 'NodeMCU ESP8266 Wi-Fi module — thesis Figure 22.' },
-        { image: robotSensor, alt: 'HC-SR04 ultrasonic sensor photographed in the thesis', caption: 'HC-SR04 ultrasonic sensor — thesis Figure 21.' },
+        { image: robotWeb, alt: 'React delivery control interface', caption: 'Web interface · Figure 31' },
+        { image: robotCompass, alt: 'Android compass interface', caption: 'Android navigation · Figure 36' },
+        { image: robotArduino, alt: 'Arduino Mega controller', caption: 'Arduino Mega · Figure 18' },
+        { image: robotWifi, alt: 'NodeMCU ESP8266 Wi-Fi module', caption: 'ESP8266 · Figure 22' },
+        { image: robotSensor, alt: 'HC-SR04 ultrasonic sensor', caption: 'Ultrasonic sensor · Figure 21' },
+        { image: robotDriver, alt: 'L298N motor driver', caption: 'Motor driver · Figure 19' },
+        { image: robotMotor, alt: 'Geared DC motor', caption: 'Drive motor · Figure 20' },
+        { image: robotGps, alt: 'NEO-6M GPS module documented in the thesis', caption: 'GPS module (thesis) · Figure 23' },
+        { image: robotKeypad, alt: 'Compartment access keypad', caption: 'Keypad · Figure 24' },
+        { image: robotServo, alt: 'SG90 servo motor', caption: 'Servo · Figure 26' },
       ],
-      demonstrated: 'The testing chapter shows delivery coordinates and an access code successfully written from the web interface to Firebase, and Android compass-heading updates appearing in the database. The thesis includes control code for navigation calculations, obstacle avoidance, and compartment access.',
-      reported: 'The conclusion reports a successful test delivery and describes arrival notification and return-to-start functionality. It does not provide measured navigation accuracy, delivery reliability, or a repeatable end-to-end test dataset. These are thesis-reported capabilities, not quantified performance results.',
+      demonstrated: 'The original demonstration video and source code are available in the project repository. The thesis documents web and Android data reaching Firebase, alongside the navigation and hardware control logic.',
+      reported: 'The repository preserves the 2023 project, not a tested rebuild. Its restoration notes identify firmware and serial-integration issues; the recovered keypad uses fixed codes. Arrival email and return-to-start behavior need revalidation.',
+
     },
   },
   {
