@@ -1,3 +1,8 @@
+import fitPitch from '../assets/projects/pitches/terrier-fit.png';
+import groundPitch from '../assets/projects/pitches/common-ground.png';
+import roommatePreferences from '../assets/projects/pitches/roommate-preferences.png';
+import sharedCalendar from '../assets/projects/pitches/shared-calendar.png';
+import communityEvents from '../assets/projects/pitches/community-events.png';
 import type { ImageMetadata } from 'astro';
 import somni from '../assets/projects/somni.png';
 import terrier from '../assets/projects/terrier.png';
@@ -27,6 +32,7 @@ export interface Project {
   image: ImageMetadata | null;
   imageAlt: string;
   visual: string;
+  gallery?: { image: ImageMetadata; alt: string; caption: string }[];
   recognition?: string;
   demo?: string;
   demoLabel?: string;
@@ -146,35 +152,40 @@ export const projects: Project[] = [
   {
     slug: 'terrier-fit',
     name: 'Terrier Fit',
-    description: 'A fitness platform concept encouraging physical activity and student engagement at BU.',
+    description: 'A social fitness concept helping BU students find activities and workout partners.',
     dates: 'Mar 2026 – May 2026',
     status: 'Concept · 2nd place',
     tags: ['Product Design', 'Systems Modeling', 'User-centered Design', 'Frontend Prototyping'],
-    image: null, imageAlt: '', visual: 'fitness',
+    image: fitPitch, imageAlt: 'Terrier Fit app identity and social fitness concept from the original pitch presentation', visual: 'pitch',
     recognition: 'https://www.bu.edu/studentwellbeing/2026/04/14/meet-the-winners-of-bus-2026-hospitality-innovation-and-student-wellbeing-competition/',
     company: {
-      about: 'A fitness platform concept designed to encourage physical activity and student engagement at Boston University, with fitness challenges, activity tracking, points, and competitive elements.',
+      about: 'Terrier Fit is a social fitness platform concept for BU students who want to stay active with others. It proposes nearby activity discovery, workout partners at a similar level, and low-pressure opportunities to move together—addressing gym intimidation and the difficulty of staying motivated alone.',
       impact: 'Earned 2nd place in the Boston University Student Wellbeing competition.',
       roleTitle: 'Product Design · Frontend Prototyping',
-      role: 'I developed the concept through systems modeling, user-centered design, feature planning, and frontend interface prototyping. I created an interactive interface demonstrating the proposed features.',
-      contributions: ['Systems Modeling', 'User-centered Design', 'Feature Planning', 'Interactive Interface Prototyping', 'Fitness Challenges & Activity Tracking', 'Points & Competitive Elements'],
+      role: 'I helped translate the team’s social fitness concept into a product through systems modeling, user-centered design, feature planning, and interactive frontend prototyping. The pitch presents a UI demonstration and a proposed campus pilot, rather than a launched service.',
+      contributions: ['Systems Modeling', 'User-centered Design', 'Student Activity Discovery', 'Workout Partner Concept', 'Feature Planning', 'Interactive Frontend Prototyping'],
     },
   },
   {
     slug: 'common-ground',
     name: 'Common Ground',
-    description: 'A student wellbeing concept for healthier communication and constructive conflict resolution.',
+    description: 'A roommate wellbeing concept for shared routines and healthier communication.',
     dates: 'Mar 2026 – May 2026',
     status: 'Concept · 3rd place',
     tags: ['Systems Modeling', 'Product Design', 'User-centered Research', 'Frontend Prototyping'],
-    image: null, imageAlt: '', visual: 'communication',
+    image: groundPitch, imageAlt: 'Common Ground original pitch cover: roommate wellbeing support and conflict prevention platform', visual: 'pitch',
+    gallery: [
+      { image: roommatePreferences, alt: 'Common Ground prototype showing noise tolerance and study habit preferences', caption: 'Roommate preferences: align expectations around noise, study habits, and shared living.' },
+      { image: sharedCalendar, alt: 'Common Ground prototype showing a shared calendar, tasks, and weekly check-in', caption: 'Shared routines: a calendar, household tasks, and weekly emotional check-ins.' },
+      { image: communityEvents, alt: 'Common Ground prototype showing dorm social and movie night event cards', caption: 'Community connection: discover dorm events and express interest in attending.' },
+    ],
     recognition: 'https://www.bu.edu/studentwellbeing/2026/04/14/meet-the-winners-of-bus-2026-hospitality-innovation-and-student-wellbeing-competition/',
     company: {
-      about: 'A student wellbeing platform concept focused on preventing interpersonal conflicts and promoting healthier communication within the Boston University community.',
+      about: 'Common Ground is a proactive roommate wellbeing platform concept for BU. It combines roommate agreements, shared tasks and calendars, weekly check-ins, and campus events. Proposed AI-guided communication supports everyday friction, while sensitive or escalated issues remain with Residence Life and RAs.',
       impact: 'Earned 3rd place in the Boston University Student Wellbeing competition.',
       roleTitle: 'Product Design · Frontend Prototyping',
-      role: 'I developed the concept through systems modeling, user-centered research, feature planning, and frontend interface prototyping. The interactive interface demonstrated tools to navigate disagreements, understand different perspectives, and address conflicts constructively.',
-      contributions: ['Systems Modeling', 'User-centered Research', 'Feature Planning', 'Frontend Interface Prototyping', 'Communication & Conflict-resolution Tools'],
+      role: 'I developed the concept through systems modeling, user-centered research, feature planning, and frontend interface prototyping. The prototype explores how roommates can align expectations and coordinate daily living. AI guidance, campus integration, and residence-hall rollout are proposed features, not confirmed deployments.',
+      contributions: ['Systems Modeling', 'User-centered Research', 'Roommate Agreement Flow', 'Shared Routines & Check-ins', 'Frontend Interface Prototyping', 'Communication Support Design'],
     },
   },
   {

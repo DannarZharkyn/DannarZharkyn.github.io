@@ -102,3 +102,13 @@ h1.case-title { font-size: clamp(2.8rem, 5vw, 4.8rem); line-height: 1.06; font-w
   .research-architecture, .research-gallery, .research-validation { padding-block: 2rem; }
   .portrait-figure .research-image img { height: auto; max-height: 480px; }
 }
+
+.company-profile .case-visual.pitch { background: #fff; }
+.company-profile .case-visual.pitch img { object-fit: contain; aspect-ratio: auto; }
+.pitch-gallery { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid #49353e; }
+.pitch-gallery > p { color: #c5bdc1; font-size: .85rem; margin-top: .7rem; }
+.pitch-gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.pitch-gallery-grid figure { min-width: 0; }
+.pitch-gallery-grid img { display: block; width: 100%; height: 340px; object-fit: contain; background: #fff; border-radius: 6px; padding: .8rem; }
+.pitch-gallery-grid figcaption { font-size: .8rem; color: #c5bdc1; margin-top: .8rem; }
+@media (max-width: 650px) { .pitch-gallery-grid { grid-template-columns: 1fr; } }
