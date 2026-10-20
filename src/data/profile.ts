@@ -1,4 +1,4 @@
-// Place a resume PDF in public/ and set resume to '/resume.pdf' when ready.
+// Replace public/resume.pdf to update the CV.
 export const profile = {
   name: 'Dannar Zharkyn',
   program: 'Systems Engineering',
@@ -7,5 +7,5 @@ export const profile = {
   github: 'https://github.com/DannarZharkyn',
   linkedin: 'https://www.linkedin.com/in/dannarzharkyn/',
   emails: ['DannarZharkyn@gmail.com', 'dannar@bu.edu'],
-  resume: '',
+  resume: '/resume.pdf',
 };
