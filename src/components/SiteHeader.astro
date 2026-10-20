@@ -6,7 +6,6 @@ const navigation = [ ['Home', 'introduction'], ['About', 'about'], ['Projects', 
 ---
   <header class="site-header">
     <div class="header-inner">
-      <a class="wordmark" href={`${home}#introduction`} aria-label="Dannar Zharkyn — home">DZ</a>
       <nav aria-label="Main navigation">
         {navigation.map(([label, id]) => <a href={`${home}#${id}`}>{label}</a>)}
       </nav>

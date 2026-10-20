@@ -87,10 +87,9 @@ const sections = [ ['Overview', 'overview'], ['Technical Approach', 'technical']
             <figcaption>{figure.caption}</figcaption>
           </figure>)}</div>
         </section>}
-        {!project.evidence && <div class="case-end"><a class="case-back" href={back}>← Back to Projects</a></div>}
       </div>
     </div>
-    {project.evidence && <><ProjectEvidence evidence={project.evidence} /><div class="dark-panel"><div class="container case-end"><a class="case-back" href={back}>← Back to Projects</a></div></div></>}
+    {project.evidence && <ProjectEvidence evidence={project.evidence} />}
   </main>
   <footer class="site-footer"><div class="container"><p>© {new Date().getFullYear()} Dannar Zharkyn</p></div></footer>
 </BaseLayout>

@@ -270,3 +270,15 @@ figcaption { font-size: .57rem; color: #cfc0c8; display: flex; justify-content: 
 
 .resume-button-frame { display: inline-flex; padding-left: .85rem; border-left: 2px solid var(--pink); }
 .resume-button { background: var(--pink); color: #21191d; border-radius: 8px; padding: .4rem 1.35rem; font-size: .85rem; }
+
+/* Clear name spacing and compact navigation buttons. */
+.hero h1 { letter-spacing: -.015em; }
+.site-header .header-inner { justify-content: flex-end; }
+.site-header nav { gap: .5rem; }
+.site-header nav a { padding: .35rem .75rem; background: var(--pink); color: #21191d; border: 1px solid var(--pink); border-radius: 5px; line-height: 1.5; text-decoration: none; transition: background .15s ease, color .15s ease; }
+.site-header nav a:hover, .site-header nav a:focus-visible { background: #121213; color: var(--pink); }
+@media (max-width: 650px) {
+  .site-header nav { gap: .4rem; justify-content: flex-end; }
+  .site-header nav a { padding: .3rem .55rem; }
+}
+@media (prefers-reduced-motion: reduce) { .site-header nav a { transition: none; } }
