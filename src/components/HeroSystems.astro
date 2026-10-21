@@ -3,9 +3,9 @@ const labels = ['User Needs', 'System Design', 'Development', 'Real-World Impact
 ---
 <div class="hero-systems" role="img" aria-label="A journey from Astana to Boston becomes four connected layers: User Needs, System Design, Development, and Real-World Impact.">
   <canvas aria-hidden="true"></canvas>
-  <svg viewBox="55 65 520 440" aria-hidden="true" class="system-stack">
+  <svg viewBox="0 35 635 540" aria-hidden="true" class="system-stack">
     <defs>
-      <linearGradient id="layer-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff74b2" stop-opacity=".04"/><stop offset="1" stop-color="#ff9bc8" stop-opacity=".65"/></linearGradient>
+      <linearGradient id="layer-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff74b2" stop-opacity=".13"/><stop offset="1" stop-color="#ff9bc8" stop-opacity=".6"/></linearGradient>
       <filter id="pink-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
       <radialGradient id="stack-halo"><stop stop-color="#ef579b" stop-opacity=".28"/><stop offset="1" stop-color="#ef579b" stop-opacity="0"/></radialGradient>
     </defs>
@@ -15,16 +15,16 @@ const labels = ['User Needs', 'System Design', 'Development', 'Real-World Impact
         {Array.from({length:9},(_,i)=><><path d={`M${20+i*38} 480 L${300+i*25} 260`}/><path d={`M${20+i*38} 260 L${300+i*25} 480`}/></>)}
         <path d="M90 200V420M250 65V485M410 200V420M90 200L250 120L410 200L250 280Z M90 420L250 340L410 420L250 500Z"/>
       </g>
-      <path d="M250 70V480" stroke="#f9b0d0" stroke-width="1" stroke-dasharray="3 6" opacity=".65"/>
+      <path d="M225 60V550" stroke="#f9b0d0" stroke-width="1" stroke-dasharray="3 6" opacity=".65"/>
       {labels.map((label,i)=> <g class="system-layer" style={`--layer:${i}`}>
-        <path d={`M250 ${130+i*70}L390 ${185+i*70}L250 ${240+i*70}L110 ${185+i*70}Z`} fill="url(#layer-fill)" stroke="#fb9dc6" stroke-width="1"/>
-        <path d={`M110 ${185+i*70}L250 ${240+i*70}L390 ${185+i*70}`} fill="none" stroke="#ffb9db" stroke-width="4" filter="url(#pink-glow)"/>
-        <path d={`M390 ${185+i*70}H420`} stroke="#f2a0c4" opacity=".7"/>
-        <circle cx="420" cy={185+i*70} r="3" fill="#ffc0dc"/>
-        <text x="434" y={189+i*70} fill="#ffc0dc" font-size="12" letter-spacing=".6">{label === 'Real-World Impact' ? <><tspan x="434">REAL-WORLD</tspan><tspan x="434" dy="17">IMPACT</tspan></> : label.toUpperCase()}</text>
+        <path d={`M225 ${95+i*100}L430 ${165+i*100}L225 ${235+i*100}L20 ${165+i*100}Z`} fill="url(#layer-fill)" stroke="#ff8ac2" stroke-width="1.5"/>
+        <path d={`M20 ${165+i*100}L225 ${235+i*100}L430 ${165+i*100}`} fill="none" stroke="#ffb9db" stroke-width="7" filter="url(#pink-glow)"/>
+        <path d={`M430 ${165+i*100}H452`} stroke="#f2a0c4" opacity=".7"/>
+        <circle cx="225" cy={235+i*100} r="3" fill="#ffe3f1" class="connection-node"/><circle class="connection-node" cx="452" cy={165+i*100} r="3" fill="#ffc0dc"/>
+        <text x="466" y={170+i*100} fill="#ffc0dc" font-size="17" letter-spacing=".6">{label === 'Real-World Impact' ? <><tspan x="466">REAL-WORLD</tspan><tspan x="466" dy="17">IMPACT</tspan></> : label.toUpperCase()}</text>
       </g>)}
-      <g class="stack-core" fill="#ffd9eb"><path d="M250 169L264 176V191L250 198L236 191V176Z" filter="url(#pink-glow)"/><path d="M250 169L264 176L250 183L236 176Z" fill="#fff0f8"/><path d="M236 176L250 183V198L236 191Z" fill="#fa8fbe"/><path d="M264 176L250 183V198L264 191Z" fill="#ffbbd9"/></g>
-      <g fill="#ffb3d4"><circle cx="250" cy="70" r="3"/><circle cx="250" cy="480" r="3"/><circle cx="90" cy="270" r="3"/><circle cx="410" cy="340" r="3"/></g>
+      <g class="stack-core" transform="translate(-25,-20)" fill="#ffd9eb"><path d="M250 169L264 176V191L250 198L236 191V176Z" filter="url(#pink-glow)"/><path d="M250 169L264 176L250 183L236 176Z" fill="#fff0f8"/><path d="M236 176L250 183V198L236 191Z" fill="#fa8fbe"/><path d="M264 176L250 183V198L264 191Z" fill="#ffbbd9"/></g>
+      <g fill="#ffb3d4"><circle cx="225" cy="60" r="3"/><circle cx="225" cy="550" r="3"/><circle cx="90" cy="270" r="3"/><circle cx="410" cy="340" r="3"/></g>
     </g>
   </svg>
 </div>
@@ -37,17 +37,17 @@ if (host) {
  const ctx = canvas.getContext('2d');
  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
  let frame = 0;
- const stop = () => { cancelAnimationFrame(frame); host.classList.remove('is-playing'); };
+ const stop = () => { cancelAnimationFrame(frame); ctx?.clearRect(0,0,canvas.width,canvas.height); canvas.hidden=true; host.classList.remove('is-playing'); };
  if(ctx && !motion.matches) {
   host.classList.add('is-playing');
   const started=performance.now(); const D=Math.PI/180;
-  const size=580, centerX=280, centerY=365, radius=310;
-  const resize=()=>{const dpr=Math.min(devicePixelRatio||1,2);canvas.width=size*dpr;canvas.height=540*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);};resize();
+  const size=960, centerX=480, centerY=490, radius=465;
+  const resize=()=>{const dpr=Math.min(devicePixelRatio||1,2);canvas.width=size*dpr;canvas.height=700*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);};resize();
   const project=(lon:number,lat:number,rotation:number,r=radius)=>{const a=(lon-rotation)*D,b=lat*D,tilt=30*D;const x=Math.cos(b)*Math.sin(a),y=Math.sin(b),z=Math.cos(b)*Math.cos(a);return {x:centerX+r*x,y:centerY-r*(y*Math.cos(tilt)-z*Math.sin(tilt)),z:y*Math.sin(tilt)+z*Math.cos(tilt)};};
   const dot=(x:number,y:number,r:number,alpha=1)=>{ctx.save();ctx.globalAlpha*=alpha;ctx.fillStyle='#ffd0e6';ctx.shadowColor='#ff4199';ctx.shadowBlur=26;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();};
   const tick=(now:number)=>{
    const t=(now-started)/1000;if(t>7.8){stop();return;}
-   ctx.clearRect(0,0,size,540);const opacity=Math.min(1,t/.7)*Math.max(0,1-(t-4.7)/1.5);ctx.save();ctx.globalAlpha=opacity;
+   ctx.clearRect(0,0,size,700);const opacity=Math.min(1,t/.7)*Math.min(1,Math.max(0,1-(t-4.7)/1.5));ctx.save();ctx.globalAlpha=opacity;
    const rotation=12-t*3;
    const sphere=ctx.createRadialGradient(centerX-65,centerY-110,25,centerX,centerY,radius);sphere.addColorStop(0,'#24141e');sphere.addColorStop(.82,'#100e13');sphere.addColorStop(1,'#b84177');ctx.fillStyle=sphere;ctx.beginPath();ctx.arc(centerX,centerY,radius,0,Math.PI*2);ctx.fill();
    ctx.lineWidth=1.2;ctx.strokeStyle='#fb85b9bb';ctx.shadowColor='#f94c9c';ctx.shadowBlur=20;ctx.beginPath();ctx.arc(centerX,centerY,radius,0,Math.PI*2);ctx.stroke();ctx.shadowBlur=0;
@@ -59,7 +59,7 @@ if (host) {
    const capitals=[[71.43,51.17],[-77.04,38.91],[-.13,51.51],[2.35,48.86],[13.41,52.52],[12.50,41.90],[-3.70,40.42],[37.62,55.75],[32.86,39.93],[31.24,30.04],[46.68,24.71],[51.39,35.69],[69.24,41.30],[77.21,28.61],[116.41,39.90],[139.69,35.68],[126.98,37.57],[100.50,13.76],[103.82,1.35],[36.82,-1.29],[28.23,-25.75],[-47.88,-15.79],[-99.13,19.43],[-75.70,45.42]];
    capitals.forEach(([lon,lat],i)=>{const p=project(lon,lat,rotation);if(p.z>.05){dot(p.x,p.y,2.2+p.z*.7,.8+.2*Math.sin(t*.8+i)**2);ctx.save();ctx.globalAlpha*=.3;ctx.strokeStyle='#ff81ba';ctx.beginPath();ctx.arc(p.x,p.y,5+p.z*2,0,Math.PI*2);ctx.stroke();ctx.restore();}});
    const astana=project(71.43,51.17,rotation),boston=project(-71.06,42.36,rotation);
-   const mark=(p:typeof astana,label:string)=>{dot(p.x,p.y,5.5);ctx.fillStyle='#ffc0dc';ctx.font='11px Helvetica, Arial';ctx.fillText(label,p.x+10,p.y-12);};
+   const mark=(p:typeof astana,label:string)=>{dot(p.x,p.y,5.5);ctx.fillStyle='#ffc0dc';ctx.font='18px Helvetica, Arial';ctx.fillText(label,p.x+10,p.y-12);};
    if(t>1)mark(astana,'ASTANA');
    const progress=Math.min(1,Math.max(0,(t-1.7)/2.1));
    if(progress>0){let tip:{x:number,y:number}|undefined;ctx.beginPath();for(let i=0;i<=80*progress;i++){const u=i/80;const a=71.43*D,b=51.17*D,c=-71.06*D,d=42.36*D;const v=[Math.cos(b)*Math.cos(a),Math.sin(b),Math.cos(b)*Math.sin(a)],w=[Math.cos(d)*Math.cos(c),Math.sin(d),Math.cos(d)*Math.sin(c)];const omega=Math.acos(v.reduce((sum,x,k)=>sum+x*w[k],0));const p=v.map((x,k)=>(Math.sin((1-u)*omega)*x+Math.sin(u*omega)*w[k])/Math.sin(omega));const q=project(Math.atan2(p[2],p[0])/D,Math.asin(p[1])/D,rotation,radius+Math.sin(u*Math.PI)*38);if(i===0)ctx.moveTo(q.x,q.y);else ctx.lineTo(q.x,q.y);tip=q;}ctx.strokeStyle='#ff4a9f55';ctx.lineWidth=7;ctx.shadowColor='#ff459c';ctx.shadowBlur=24;ctx.stroke();ctx.strokeStyle='#ffe0ef';ctx.lineWidth=2;ctx.stroke();ctx.shadowBlur=0;if(tip)dot(tip.x,tip.y,5);}
@@ -72,20 +72,25 @@ if (host) {
 }
 </script>
 <style>
-.hero-systems { width:100%; max-width:620px; aspect-ratio:580/540; position:relative; isolation:isolate; }
+.hero-systems { width:100%; max-width:620px; aspect-ratio:580/600; position:relative; isolation:isolate; }
 canvas,.system-stack { position:absolute; inset:0; width:100%; height:100%; }
-canvas { pointer-events:none; mask-image:linear-gradient(to bottom,#000 80%,transparent 100%),linear-gradient(to right,transparent,#000 5%,#000 95%,transparent); mask-composite:intersect; }
+canvas { width:calc(100% + 40px); left:-20px; height:auto; aspect-ratio:960/700; top:0; }
+canvas[hidden] { display:none; }
+canvas { pointer-events:none; mask-image:linear-gradient(to bottom,#000 75%,transparent 100%); }
 .system-stack { overflow:visible; scale:1; transform-origin:43% 50%; }
 .system-layer > path:first-child { filter:drop-shadow(0 0 5px #ff5ca980); }
-.stack-core { filter:drop-shadow(0 0 12px #ff6caf); }
+.stack-core { filter:drop-shadow(0 0 18px #ff6caf); }
+.connection-node { filter:drop-shadow(0 0 5px #ff4ba2); }
 .floating-stack { animation:stack-float 6s ease-in-out infinite; }
 .stack-core { animation:core-glow 3s ease-in-out infinite alternate; }
 .is-playing .system-stack { animation:stack-arrive 7.8s both; }
+.is-playing .system-layer text { animation:label-arrive .6s 6.2s both; }
+@keyframes label-arrive { from { opacity:0; } to { opacity:1; } }
 .is-playing .system-layer { animation:layer-arrive .9s calc(4.7s + var(--layer)*.48s) both; }
 @keyframes stack-arrive { 0%,58% { opacity:0; transform:translate(-108px,-18px) scale(.22); transform-origin:43% 34.3%; } 68% { opacity:1; } 100% { opacity:1; transform:translate(0,0) scale(1); transform-origin:43% 34.3%; } }
 @keyframes layer-arrive { from { opacity:0; translate:0 22px; } to { opacity:1; translate:0 0; } }
 @keyframes stack-float { 50% { transform:translateY(-7px); } }
 @keyframes core-glow { to { opacity:.65; } }
-@media (max-width:650px) { .system-stack { scale:1; } .hero-systems { max-width:460px; margin-inline:auto; } }
+@media (max-width:650px) { .system-stack { scale:1; } .hero-systems { max-width:460px; margin-inline:auto; } canvas { width:100%; left:0; } }
 @media (prefers-reduced-motion:reduce) { *, .floating-stack,.stack-core { animation:none!important; } canvas { display:none; } }
 </style>
