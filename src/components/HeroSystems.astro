@@ -5,9 +5,9 @@ const labels = ['User Needs', 'System Design', 'Development', 'Real-World Impact
   <canvas aria-hidden="true"></canvas>
   <svg viewBox="0 0 580 540" aria-hidden="true" class="system-stack">
     <defs>
-      <linearGradient id="layer-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff74b2" stop-opacity=".04"/><stop offset="1" stop-color="#ff9bc8" stop-opacity=".45"/></linearGradient>
+      <linearGradient id="layer-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff74b2" stop-opacity=".04"/><stop offset="1" stop-color="#ff9bc8" stop-opacity=".65"/></linearGradient>
       <filter id="pink-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
-      <radialGradient id="stack-halo"><stop stop-color="#ef579b" stop-opacity=".18"/><stop offset="1" stop-color="#ef579b" stop-opacity="0"/></radialGradient>
+      <radialGradient id="stack-halo"><stop stop-color="#ef579b" stop-opacity=".28"/><stop offset="1" stop-color="#ef579b" stop-opacity="0"/></radialGradient>
     </defs>
     <ellipse cx="255" cy="295" rx="230" ry="235" fill="url(#stack-halo)"/>
     <g class="floating-stack">
@@ -18,7 +18,7 @@ const labels = ['User Needs', 'System Design', 'Development', 'Real-World Impact
       <path d="M250 70V480" stroke="#f9b0d0" stroke-width="1" stroke-dasharray="3 6" opacity=".65"/>
       {labels.map((label,i)=> <g class="system-layer" style={`--layer:${i}`}>
         <path d={`M250 ${130+i*70}L365 ${185+i*70}L250 ${240+i*70}L135 ${185+i*70}Z`} fill="url(#layer-fill)" stroke="#fb9dc6" stroke-width="1"/>
-        <path d={`M135 ${185+i*70}L250 ${240+i*70}L365 ${185+i*70}`} fill="none" stroke="#ffb9db" stroke-width="2" filter="url(#pink-glow)"/>
+        <path d={`M135 ${185+i*70}L250 ${240+i*70}L365 ${185+i*70}`} fill="none" stroke="#ffb9db" stroke-width="4" filter="url(#pink-glow)"/>
         <path d={`M365 ${185+i*70}H420`} stroke="#f2a0c4" opacity=".7"/>
         <circle cx="420" cy={185+i*70} r="3" fill="#ffc0dc"/>
         <text x="434" y={189+i*70} fill="#ffc0dc" font-size="12" letter-spacing=".6">{label === 'Real-World Impact' ? <><tspan x="434">REAL-WORLD</tspan><tspan x="434" dy="17">IMPACT</tspan></> : label.toUpperCase()}</text>
@@ -30,6 +30,7 @@ const labels = ['User Needs', 'System Design', 'Development', 'Real-World Impact
 </div>
 <script>
 import land from '../data/land.json';
+import landDots from '../data/land-dots.json';
 const host = document.querySelector<HTMLElement>('.hero-systems');
 if (host) {
  const canvas = host.querySelector('canvas')!;
@@ -40,24 +41,26 @@ if (host) {
  if(ctx && !motion.matches) {
   host.classList.add('is-playing');
   const started=performance.now(); const D=Math.PI/180;
-  const size=580, centerX=280, centerY=280, radius=208;
+  const size=580, centerX=280, centerY=280, radius=239;
   const resize=()=>{const dpr=Math.min(devicePixelRatio||1,2);canvas.width=size*dpr;canvas.height=540*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);};resize();
   const project=(lon:number,lat:number,rotation:number,r=radius)=>{const a=(lon-rotation)*D,b=lat*D,tilt=30*D;const x=Math.cos(b)*Math.sin(a),y=Math.sin(b),z=Math.cos(b)*Math.cos(a);return {x:centerX+r*x,y:centerY-r*(y*Math.cos(tilt)-z*Math.sin(tilt)),z:y*Math.sin(tilt)+z*Math.cos(tilt)};};
-  const dot=(x:number,y:number,r:number,alpha=1)=>{ctx.save();ctx.globalAlpha*=alpha;ctx.fillStyle='#ffd0e6';ctx.shadowColor='#ff4199';ctx.shadowBlur=18;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();};
+  const dot=(x:number,y:number,r:number,alpha=1)=>{ctx.save();ctx.globalAlpha*=alpha;ctx.fillStyle='#ffd0e6';ctx.shadowColor='#ff4199';ctx.shadowBlur=26;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();};
   const tick=(now:number)=>{
    const t=(now-started)/1000;if(t>7.8){stop();return;}
    ctx.clearRect(0,0,size,540);const opacity=Math.min(1,t/.7)*Math.max(0,1-(t-4.7)/1.5);ctx.save();ctx.globalAlpha=opacity;
    const rotation=12-t*3;
-   const sphere=ctx.createRadialGradient(235,200,20,280,280,220);sphere.addColorStop(0,'#24141e');sphere.addColorStop(.82,'#100e13');sphere.addColorStop(1,'#74304f');ctx.fillStyle=sphere;ctx.beginPath();ctx.arc(centerX,centerY,radius,0,Math.PI*2);ctx.fill();
-   ctx.lineWidth=.6;ctx.strokeStyle='#f38ab94d';ctx.beginPath();ctx.arc(centerX,centerY,radius,0,Math.PI*2);ctx.stroke();
+   const sphere=ctx.createRadialGradient(235,200,20,280,280,250);sphere.addColorStop(0,'#24141e');sphere.addColorStop(.82,'#100e13');sphere.addColorStop(1,'#b84177');ctx.fillStyle=sphere;ctx.beginPath();ctx.arc(centerX,centerY,radius,0,Math.PI*2);ctx.fill();
+   ctx.lineWidth=1.2;ctx.strokeStyle='#fb85b9bb';ctx.shadowColor='#f94c9c';ctx.shadowBlur=20;ctx.beginPath();ctx.arc(centerX,centerY,radius,0,Math.PI*2);ctx.stroke();ctx.shadowBlur=0;
    // Latitude/longitude points establish depth without a WebGL dependency.
-   for(let lat=-80;lat<=80;lat+=8)for(let lon=-180;lon<180;lon+=5){const p=project(lon,lat,rotation);if(p.z>0){ctx.fillStyle=`rgba(235,117,169,${.08+p.z*.15})`;ctx.fillRect(p.x,p.y,1,1);}}
+   for(let lat=-80;lat<=80;lat+=5)for(let lon=-180;lon<180;lon+=4){const p=project(lon,lat,rotation);if(p.z>0){ctx.fillStyle=`rgba(235,117,169,${.12+p.z*.22})`;ctx.fillRect(p.x,p.y,1,1);}}
    for(const ring of land){ctx.beginPath();let pen=false;for(const [lon,lat] of ring){const p=project(lon,lat,rotation);if(p.z>0){if(pen)ctx.lineTo(p.x,p.y);else ctx.moveTo(p.x,p.y);pen=true;}else pen=false;}ctx.strokeStyle='#e67aa78c';ctx.stroke();}
+   for(const [lon,lat] of landDots){const p=project(lon,lat,rotation);if(p.z>.03){const shimmer=.7+.3*Math.sin(lon*8+lat+t*1.3);ctx.fillStyle=`rgba(255,135,190,${(.3+p.z*.6)*shimmer})`;ctx.beginPath();ctx.arc(p.x,p.y,.65+p.z*.55,0,Math.PI*2);ctx.fill();}}
+   for(let i=0;i<28;i++){const lon=i*137.5%360-180,lat=(i*29%120)-45;const p=project(lon,lat,rotation);if(p.z>.15)dot(p.x,p.y,1.6,.45+.3*Math.sin(t+i)**2);}
    const astana=project(71.43,51.17,rotation),boston=project(-71.06,42.36,rotation);
-   const mark=(p:typeof astana,label:string)=>{dot(p.x,p.y,4);ctx.fillStyle='#ffc0dc';ctx.font='11px Helvetica, Arial';ctx.fillText(label,p.x+10,p.y-12);};
+   const mark=(p:typeof astana,label:string)=>{dot(p.x,p.y,5.5);ctx.fillStyle='#ffc0dc';ctx.font='11px Helvetica, Arial';ctx.fillText(label,p.x+10,p.y-12);};
    if(t>1)mark(astana,'ASTANA');
    const progress=Math.min(1,Math.max(0,(t-1.7)/2.1));
-   if(progress>0){let tip:{x:number,y:number}|undefined;ctx.beginPath();for(let i=0;i<=80*progress;i++){const u=i/80;const a=71.43*D,b=51.17*D,c=-71.06*D,d=42.36*D;const v=[Math.cos(b)*Math.cos(a),Math.sin(b),Math.cos(b)*Math.sin(a)],w=[Math.cos(d)*Math.cos(c),Math.sin(d),Math.cos(d)*Math.sin(c)];const omega=Math.acos(v.reduce((sum,x,k)=>sum+x*w[k],0));const p=v.map((x,k)=>(Math.sin((1-u)*omega)*x+Math.sin(u*omega)*w[k])/Math.sin(omega));const q=project(Math.atan2(p[2],p[0])/D,Math.asin(p[1])/D,rotation,radius+Math.sin(u*Math.PI)*38);if(i===0)ctx.moveTo(q.x,q.y);else ctx.lineTo(q.x,q.y);tip=q;}ctx.strokeStyle='#ffadd1';ctx.lineWidth=1.8;ctx.shadowColor='#ff459c';ctx.shadowBlur=12;ctx.stroke();ctx.shadowBlur=0;if(tip)dot(tip.x,tip.y,3.5);}
+   if(progress>0){let tip:{x:number,y:number}|undefined;ctx.beginPath();for(let i=0;i<=80*progress;i++){const u=i/80;const a=71.43*D,b=51.17*D,c=-71.06*D,d=42.36*D;const v=[Math.cos(b)*Math.cos(a),Math.sin(b),Math.cos(b)*Math.sin(a)],w=[Math.cos(d)*Math.cos(c),Math.sin(d),Math.cos(d)*Math.sin(c)];const omega=Math.acos(v.reduce((sum,x,k)=>sum+x*w[k],0));const p=v.map((x,k)=>(Math.sin((1-u)*omega)*x+Math.sin(u*omega)*w[k])/Math.sin(omega));const q=project(Math.atan2(p[2],p[0])/D,Math.asin(p[1])/D,rotation,radius+Math.sin(u*Math.PI)*38);if(i===0)ctx.moveTo(q.x,q.y);else ctx.lineTo(q.x,q.y);tip=q;}ctx.strokeStyle='#ff4a9f55';ctx.lineWidth=7;ctx.shadowColor='#ff459c';ctx.shadowBlur=24;ctx.stroke();ctx.strokeStyle='#ffe0ef';ctx.lineWidth=2;ctx.stroke();ctx.shadowBlur=0;if(tip)dot(tip.x,tip.y,5);}
    if(t>3.8){mark(boston,'BOSTON');const pulse=(t-3.8)/1.1;if(pulse<1){ctx.beginPath();ctx.arc(boston.x,boston.y,8+pulse*65,0,Math.PI*2);ctx.strokeStyle=`rgba(255,157,203,${1-pulse})`;ctx.stroke();}}
    ctx.restore();frame=requestAnimationFrame(tick);
   };frame=requestAnimationFrame(tick);
@@ -70,7 +73,9 @@ if (host) {
 .hero-systems { width:100%; max-width:620px; aspect-ratio:580/540; position:relative; isolation:isolate; }
 canvas,.system-stack { position:absolute; inset:0; width:100%; height:100%; }
 canvas { pointer-events:none; }
-.system-stack { overflow:visible; }
+.system-stack { overflow:visible; scale:1.08; transform-origin:43% 50%; }
+.system-layer > path:first-child { filter:drop-shadow(0 0 5px #ff5ca980); }
+.stack-core { filter:drop-shadow(0 0 12px #ff6caf); }
 .floating-stack { animation:stack-float 6s ease-in-out infinite; }
 .stack-core { animation:core-glow 3s ease-in-out infinite alternate; }
 .is-playing .system-stack { animation:stack-arrive 7.8s both; }
@@ -79,6 +84,6 @@ canvas { pointer-events:none; }
 @keyframes layer-arrive { from { opacity:0; translate:0 22px; } to { opacity:1; translate:0 0; } }
 @keyframes stack-float { 50% { transform:translateY(-7px); } }
 @keyframes core-glow { to { opacity:.65; } }
-@media (max-width:650px) { .hero-systems { max-width:460px; margin-inline:auto; } }
+@media (max-width:650px) { .system-stack { scale:1.02; } .hero-systems { max-width:460px; margin-inline:auto; } }
 @media (prefers-reduced-motion:reduce) { *, .floating-stack,.stack-core { animation:none!important; } canvas { display:none; } }
 </style>
