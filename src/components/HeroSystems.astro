@@ -39,6 +39,10 @@ if (host) {
  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
  let frame = 0;
  const stack=host.querySelector<SVGSVGElement>('.system-stack')!;
+ const mobile=window.matchMedia('(max-width:650px)');
+ const setComposition=()=>stack.setAttribute('viewBox',mobile.matches?'-92.5 35 635 540':'0 35 635 540');
+ setComposition();
+ mobile.addEventListener('change',setComposition);
  const layers=Array.from(host.querySelectorAll<SVGGElement>('.system-layer'));
  const ease=(x:number)=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);};
  const finishLayers=()=>{layers.forEach(layer=>{layer.style.opacity='';layer.removeAttribute('transform');});};
@@ -51,7 +55,7 @@ if (host) {
   // Share the final layers' centerline with the Boston arrival and cube.
   const canvasBounds=canvas.getBoundingClientRect(),stackBounds=stack.getBoundingClientRect();
   const stackScale=Math.min(stackBounds.width/635,stackBounds.height/540);
-  const centerX=(stackBounds.left+(stackBounds.width-635*stackScale)/2+225*stackScale-canvasBounds.left)*size/canvasBounds.width;
+  const centerX=(stackBounds.left+(stackBounds.width-635*stackScale)/2+(225-stack.viewBox.baseVal.x)*stackScale-canvasBounds.left)*size/canvasBounds.width;
   const resize=()=>{const dpr=Math.min(devicePixelRatio||1,2);canvas.width=size*dpr;canvas.height=700*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);};resize();
   const project=(lon:number,lat:number,rotation:number,r=radius)=>{const a=(lon-rotation)*D,b=lat*D,tilt=42.36*D;const x=Math.cos(b)*Math.sin(a),y=Math.sin(b),z=Math.cos(b)*Math.cos(a);return {x:centerX+r*x,y:centerY-r*(y*Math.cos(tilt)-z*Math.sin(tilt)),z:y*Math.sin(tilt)+z*Math.cos(tilt)};};
   const dot=(x:number,y:number,r:number,alpha=1)=>{ctx.save();ctx.globalAlpha*=alpha;ctx.fillStyle='#ffd0e6';ctx.shadowColor='#ff4199';ctx.shadowBlur=26;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();};
@@ -139,6 +143,9 @@ canvas { pointer-events:none; mask-image:linear-gradient(to bottom,#000 75%,tran
 
 @keyframes core-glow { to { opacity:.65; } }
 @media (min-width:651px) and (max-width:1100px) { canvas { --globe-width:calc(100% + 40px); --globe-left:-20px; } }
-@media (max-width:650px) { .system-stack { scale:1; } .hero-systems { max-width:460px; margin-inline:auto; } canvas { --globe-width:100%; --globe-left:0px; } }
+@media (max-width:650px) {
+ .system-layer text { transform:translate(-241px,37px); text-anchor:middle; font-size:19px; letter-spacing:.8px; }
+ .system-layer > path:nth-of-type(3), .system-layer > circle:last-of-type { display:none; }
+ .system-stack { scale:1; } .hero-systems { max-width:460px; margin-inline:auto; } canvas { --globe-width:100%; --globe-left:0px; } }
 @media (prefers-reduced-motion:reduce) { *, .floating-stack,.stack-core { animation:none!important; } canvas { display:none; } }
 </style>
