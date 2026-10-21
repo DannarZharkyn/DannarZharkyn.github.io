@@ -9,6 +9,7 @@ import { projects } from '../data/projects';
 import SiteHeader from '../components/SiteHeader.astro';
 import ProjectVisual from '../components/ProjectVisual.astro';
 import Skills from '../components/Skills.astro';
+import HeroSystems from '../components/HeroSystems.astro';
 ---
 <BaseLayout title="Dannar Zharkyn | Engineering Portfolio" description="Engineering portfolio of Dannar Zharkyn, a Systems Engineering MS candidate at Boston University.">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -33,24 +34,7 @@ import Skills from '../components/Skills.astro';
             {profile.resume ? <a href={profile.resume} target="_blank" rel="noopener noreferrer" aria-label="View resume PDF (opens in a new tab)">Resume</a> : <span class="pending-link">Resume coming soon</span>}
           </div>
         </div>
-        <div class="systems-visual" aria-hidden="true">
-
-          <svg viewBox="0 0 440 440" fill="none">
-            <defs><pattern id="systems-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#f3b8cc" stroke-opacity=".07"/></pattern></defs>
-            <rect width="440" height="440" fill="url(#systems-grid)"/>
-            <circle cx="220" cy="220" r="162" stroke="#f3b8cc" stroke-opacity=".18" stroke-dasharray="3 8"/>
-            <circle cx="220" cy="220" r="110" stroke="#f3b8cc" stroke-opacity=".1"/>
-            <g stroke="#f3b8cc" stroke-opacity=".55">
-              <path d="M80 120H160V190M280 250V320H360M80 320H150V250M280 190V120H360"/>
-              <path d="M220 58V160M220 280V382" stroke-dasharray="4 6"/>
-              <rect x="160" y="160" width="120" height="120" rx="6" fill="#f3b8cc" fill-opacity=".04"/>
-              <rect x="178" y="178" width="84" height="84" rx="3" stroke-opacity=".2"/>
-              <path d="M207 220H233M220 207V233"/>
-            </g>
-            <g fill="#f3b8cc"><circle cx="80" cy="120" r="4"/><circle cx="360" cy="120" r="4"/><circle cx="80" cy="320" r="4"/><circle cx="360" cy="320" r="4"/><circle cx="220" cy="58" r="3"/><circle cx="220" cy="382" r="3"/></g>
-          </svg>
-
-        </div>
+        <HeroSystems />
       </div>
     </section>
 
