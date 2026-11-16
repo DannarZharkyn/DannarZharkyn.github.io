@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { goatCounterEndpoint } from '../data/analytics';
 
 interface Props {
   title: string;
@@ -21,5 +22,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <slot />
+    {import.meta.env.PROD && goatCounterEndpoint && (
+      <script is:inline async src="https://gc.zgo.at/count.js"
+        data-goatcounter={goatCounterEndpoint}
+        data-goatcounter-settings={JSON.stringify({ no_events: true, path: '/', title: '', referrer: '' })}
+      ></script>
+    )}
   </body>
 </html>
